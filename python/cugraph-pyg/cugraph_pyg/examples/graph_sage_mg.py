@@ -19,6 +19,7 @@ import time
 import argparse
 import gc
 
+import numpy as np
 import torch
 
 from torch_geometric.nn import CuGraphSAGEConv
@@ -141,12 +142,11 @@ def train(
     init_pytorch_worker(rank, torch_devices, manager_ip, manager_port)
     td.barrier()
 
-    client = start_cugraph_dask_client(rank, dask_scheduler_file)
+    start_cugraph_dask_client(rank, dask_scheduler_file)
 
     from distributed import Event as Dask_Event
 
     event = Dask_Event("cugraph_store_creation_event")
-    download_event = Dask_Event("dataset_download_event")
 
     td.barrier()
 
@@ -154,77 +154,103 @@ def train(
     from cugraph_pyg.data import CuGraphStore
     from cugraph_pyg.loader import CuGraphNeighborLoader
 
-    from ogb.nodeproppred import NodePropPredDataset
+    root = "/datasets/abarghi/ogbn_papers100M/converted/"
+    import os
 
-    if rank == 0:
-        print("Rank 0 downloading dataset")
-        dataset = NodePropPredDataset(name="ogbn-mag")
-        data = dataset[0]
-        download_event.set()
-        print("Dataset downloaded")
-    else:
-        if download_event.wait(timeout=1000):
-            print(f"Rank {rank} loading dataset")
-            dataset = NodePropPredDataset(name="ogbn-mag")
-            data = dataset[0]
-            print(f"Rank {rank} loaded dataset successfully")
+    with open(os.path.join(root, "ogbn_papers100M_meta.json"), "r") as f:
+        import json
 
-    G = data[0]["edge_index_dict"]
-    N = data[0]["num_nodes_dict"]
+        meta = json.load(f)
+
+    feature_data = np.fromfile(
+        os.path.join(root, "ogbn_papers100M_node_feat_paper_part_0_of_1"),
+        dtype="float32",
+    )
+    feature_data = feature_data.reshape(
+        meta["nodes"][0]["num_nodes"], meta["nodes"][0]["emb_dim"]
+    )
+
+    G = np.fromfile(
+        os.path.join(root, "ogbn_papers100M_edge_index_paper_cites_paper_part_0_of_1"),
+        dtype="int32",
+    )
+    G = {
+        ("paper", "cites", "paper"): G.reshape(2, meta["edges"][0]["num_edges"]).astype(
+            "int64"
+        )
+    }
+
+    N = {"paper": meta["nodes"][0]["num_nodes"]}
 
     fs = cugraph.gnn.FeatureStore(backend="torch")
 
+    print(feature_data)
+    print(features_device)
     fs.add_data(
-        torch.as_tensor(data[0]["node_feat_dict"]["paper"], device=features_device),
+        torch.as_tensor(feature_data, device=features_device),
         "paper",
         "x",
     )
 
-    fs.add_data(torch.as_tensor(data[1]["paper"].T[0], device=device_id), "paper", "y")
+    num_papers = N["paper"]
 
-    num_papers = data[0]["num_nodes_dict"]["paper"]
+    with open(os.path.join(root, "ogbn_papers100M_data_and_label.pkl"), "rb") as f:
+        import pickle
 
-    if rank == 0:
-        train_perc = 0.1
-        all_train_nodes = torch.randperm(num_papers)
-        all_train_nodes = all_train_nodes[: int(train_perc * num_papers)]
-        train_nodes = all_train_nodes[: int(len(all_train_nodes) / world_size)]
+        label = pickle.load(f)
 
-        train_mask = torch.full((num_papers,), -1, device=device_id)
-        train_mask[train_nodes] = 1
-        fs.add_data(train_mask, "paper", "train")
+    y = torch.full((num_papers,), -1, dtype=torch.long)
+    y[label["train_idx"]] = torch.as_tensor(label["train_label"].T[0], device="cpu").to(
+        torch.long
+    )
+    y[label["test_idx"]] = torch.as_tensor(label["test_label"].T[0], device="cpu").to(
+        torch.long
+    )
+    # y[label['val_idx']] = torch.as_tensor(label['val_label'].T[0], device='cpu').to(
+    # torch.long
+    # )
+
+    fs.add_data(torch.as_tensor(y, device=device_id), "paper", "y")
+
+    all_train_nodes = label["train_idx"]
+    num_train_nodes_per_rank = len(all_train_nodes) // world_size
+    train_nodes = all_train_nodes[
+        num_train_nodes_per_rank * rank : num_train_nodes_per_rank * (rank + 1)
+    ]
+
+    train_mask = torch.full((num_papers,), 0, device=device_id)
+    train_mask[train_nodes] = 1
+    fs.add_data(train_mask, "paper", "train")
 
     print(f"Rank {rank} finished loading graph and feature data")
 
     if rank == 0:
-        print("Rank 0 creating its cugraph store and initializing distributed graph")
-        # Rank 0 will initialize the distributed cugraph graph.
+        store_create_start_time = time.perf_counter_ns()
         cugraph_store = CuGraphStore(fs, G, N, multi_gpu=True)
-        client.publish_dataset(train_nodes=all_train_nodes)
         event.set()
-        print("Rank 0 done with cugraph store creation")
+        store_create_end_time = time.perf_counter_ns()
+        print(
+            "rank 0 created store in "
+            f"{(store_create_end_time - store_create_start_time) / 1e9:3.4f} s"
+        )
     else:
         if event.wait(timeout=1000):
-            print(f"Rank {rank} creating cugraph store")
-            train_nodes = client.get_dataset("train_nodes")
-            train_nodes = train_nodes[
-                int(rank * len(train_nodes) / world_size) : int(
-                    (rank + 1) * len(train_nodes) / world_size
-                )
-            ]
-
-            train_mask = torch.full((num_papers,), -1, device=device_id)
-            train_mask[train_nodes] = 1
-            fs.add_data(train_mask, "paper", "train")
-
-            # Will automatically use the stored distributed cugraph graph on rank 0.
+            store_create_start_time = time.perf_counter_ns()
             cugraph_store = CuGraphStore(fs, G, N, multi_gpu=True)
-            print(f"Rank {rank} done with cugraph store creation")
+            store_create_end_time = time.perf_counter_ns()
+            print(
+                f"Rank {rank} done with cugraph store creation, took "
+                f"{(store_create_end_time - store_create_start_time) / 1e9:3.4f} s"
+            )
+        else:
+            raise RuntimeError("timeout")
 
     print(f"rank {rank}: train {train_nodes.shape}")
     td.barrier()
     model = (
-        CuGraphSAGE(in_channels=128, hidden_channels=64, out_channels=349, num_layers=3)
+        CuGraphSAGE(
+            in_channels=128, hidden_channels=256, out_channels=172, num_layers=3
+        )
         .to(torch.float32)
         .to(device_id)
     )
@@ -240,10 +266,10 @@ def train(
         cugraph_bulk_loader = CuGraphNeighborLoader(
             cugraph_store,
             train_nodes,
-            batch_size=500,
-            num_neighbors=[10, 25],
-            seeds_per_call=10_000,
-            batches_per_partition=20,
+            batch_size=1024,
+            num_neighbors=[30, 30, 30],
+            seeds_per_call=1024,
+            batches_per_partition=32,
         )
 
         total_loss = 0
@@ -298,7 +324,6 @@ def train(
     td.barrier()
     if rank == 0:
         print("DONE", flush=True)
-        client.unpublish_dataset("train_nodes")
         event.clear()
 
     td.destroy_process_group()
@@ -325,7 +350,7 @@ def parse_args():
     parser.add_argument(
         "--features_on_gpu",
         type=bool,
-        default=True,
+        default=False,
         help="Whether to store the features on each worker's GPU",
         required=False,
     )
