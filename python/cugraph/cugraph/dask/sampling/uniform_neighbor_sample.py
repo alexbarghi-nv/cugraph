@@ -399,14 +399,22 @@ def uniform_neighbor_sample(
     start_list = start_list.rename(start_col_name)
     if batch_id_list is not None:
         batch_id_list = batch_id_list.rename(batch_col_name)
-        if isinstance(start_list, cudf.Series):
-            concat_fn = cudf.concat
+        if hasattr(start_list, 'compute'):
+            # mg input
+            start_list = start_list.to_frame()
+            batch_id_list = batch_id_list.to_frame()
+            ddf = start_list.merge(
+                batch_id_list,
+                how='left',
+                left_index=True,
+                right_index=True,
+            )
         else:
-            concat_fn = dask_cudf.concat
-        ddf = concat_fn([
-            start_list,
-            batch_id_list   
-        ], axis=1)
+            # sg input
+            ddf = cudf.concat([
+                start_list,
+                batch_id_list,
+            ], axis=1)
     else:
         ddf = start_list.to_frame()
     
