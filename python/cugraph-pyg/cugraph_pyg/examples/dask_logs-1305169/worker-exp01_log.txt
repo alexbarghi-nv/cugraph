@@ -1,0 +1,150 @@
+RUNNING: "python -m dask_cuda.cli.dask_cuda_worker --rmm-pool-size=28G
+             --local-directory=/tmp/
+             --scheduler-file=/root/cugraph/python/cugraph-pyg/cugraph_pyg/examples/scheduler.json
+             --memory-limit=auto
+             --device-memory-limit=auto
+            "
+2023-04-04 14:22:02,501 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.120.104.11:35707'
+2023-04-04 14:22:02,504 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.120.104.11:46783'
+2023-04-04 14:22:03,679 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-suzclpvo', purging
+2023-04-04 14:22:03,680 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-17ra2tes', purging
+2023-04-04 14:22:03,680 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-04 14:22:03,680 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-04 14:22:03,692 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-04 14:22:03,692 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-04 14:22:03,955 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-04-04 14:22:03,985 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-04-04 14:22:05,655 - distributed.worker - INFO -       Start worker at:  tcp://10.120.104.11:44647
+2023-04-04 14:22:05,655 - distributed.worker - INFO -          Listening to:  tcp://10.120.104.11:44647
+2023-04-04 14:22:05,655 - distributed.worker - INFO -          dashboard at:        10.120.104.11:32945
+2023-04-04 14:22:05,655 - distributed.worker - INFO - Waiting to connect to:   tcp://10.120.104.11:8786
+2023-04-04 14:22:05,655 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 14:22:05,655 - distributed.worker - INFO -               Threads:                          1
+2023-04-04 14:22:05,655 - distributed.worker - INFO -                Memory:                 755.28 GiB
+2023-04-04 14:22:05,655 - distributed.worker - INFO -       Local Directory: /tmp/dask-worker-space/worker-rge1m3y0
+2023-04-04 14:22:05,656 - distributed.worker - INFO - Starting Worker plugin RMMSetup-ae5ab592-6382-461e-81d9-2601428c500c
+2023-04-04 14:22:05,668 - distributed.worker - INFO -       Start worker at:  tcp://10.120.104.11:36735
+2023-04-04 14:22:05,668 - distributed.worker - INFO -          Listening to:  tcp://10.120.104.11:36735
+2023-04-04 14:22:05,668 - distributed.worker - INFO -          dashboard at:        10.120.104.11:33197
+2023-04-04 14:22:05,668 - distributed.worker - INFO - Waiting to connect to:   tcp://10.120.104.11:8786
+2023-04-04 14:22:05,668 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 14:22:05,668 - distributed.worker - INFO -               Threads:                          1
+2023-04-04 14:22:05,668 - distributed.worker - INFO -                Memory:                 755.28 GiB
+2023-04-04 14:22:05,669 - distributed.worker - INFO -       Local Directory: /tmp/dask-worker-space/worker-4ughzg6l
+2023-04-04 14:22:05,670 - distributed.worker - INFO - Starting Worker plugin RMMSetup-6eaeddc3-9dce-453f-880f-3fcf7f3c2cf2
+2023-04-04 14:22:05,820 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-4ba45a7c-e778-4d8e-90d1-95c4d9e942d7
+2023-04-04 14:22:05,820 - distributed.worker - INFO - Starting Worker plugin PreImport-13a7065f-a946-4564-b284-825189161dcd
+2023-04-04 14:22:05,821 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-a01073f2-88ce-4110-9898-762f106bbf62
+2023-04-04 14:22:05,821 - distributed.worker - INFO - Starting Worker plugin PreImport-5aa5fc97-a650-44c5-8d41-f56c701bf5cb
+2023-04-04 14:22:05,821 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 14:22:05,822 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 14:22:05,834 - distributed.worker - INFO -         Registered to:   tcp://10.120.104.11:8786
+2023-04-04 14:22:05,834 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 14:22:05,836 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:8786
+2023-04-04 14:22:05,864 - distributed.worker - INFO -         Registered to:   tcp://10.120.104.11:8786
+2023-04-04 14:22:05,864 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 14:22:05,866 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:8786
+2023-04-04 14:22:22,697 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:22,698 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:23,514 - distributed.worker - INFO - Run out-of-band function '_func_init_all'
+2023-04-04 14:22:23,514 - distributed.worker - INFO - Run out-of-band function '_func_init_all'
+2023-04-04 14:22:24,209 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:24,220 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:24,225 - distributed.worker - INFO - Run out-of-band function '_func_init_all'
+2023-04-04 14:22:24,225 - distributed.worker - INFO - Run out-of-band function '_func_init_all'
+2023-04-04 14:22:32,657 - distributed.worker - INFO - Run out-of-band function '_subcomm_init'
+2023-04-04 14:22:32,845 - distributed.worker - INFO - Run out-of-band function '_subcomm_init'
+2023-04-04 14:22:39,666 - distributed.core - INFO - Event loop was unresponsive in Worker for 15.25s.  This is often caused by long-running GIL-holding functions or moving large chunks of data. This can cause timeouts and instability.
+2023-04-04 14:22:39,666 - distributed.core - INFO - Event loop was unresponsive in Worker for 15.25s.  This is often caused by long-running GIL-holding functions or moving large chunks of data. This can cause timeouts and instability.
+2023-04-04 14:22:39,671 - distributed.worker - INFO - Run out-of-band function '_subcomm_init'
+2023-04-04 14:22:39,671 - distributed.worker - INFO - Run out-of-band function '_subcomm_init'
+2023-04-04 14:22:49,583 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:49,584 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:50,032 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:50,032 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:53,282 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:53,284 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:55,063 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:55,064 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:58,683 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:22:58,683 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:00,912 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:00,912 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:04,317 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:04,318 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:06,585 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:06,585 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:09,475 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:09,475 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:12,298 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:12,298 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:15,522 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:15,523 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:18,909 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:18,911 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:21,153 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:21,153 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:24,554 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:24,555 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:26,266 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:26,266 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:30,159 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:30,159 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:33,146 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:23:33,148 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 14:32:32,575 - distributed.nanny - INFO - Closing Nanny at 'tcp://10.120.104.11:35707'. Reason: nanny-close
+2023-04-04 14:32:32,575 - distributed.worker - INFO - Stopping worker at tcp://10.120.104.11:44647. Reason: worker-handle-scheduler-connection-broken
+2023-04-04 14:32:32,575 - distributed.worker - INFO - Stopping worker at tcp://10.120.104.11:36735. Reason: worker-handle-scheduler-connection-broken
+2023-04-04 14:32:32,575 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2023-04-04 14:32:32,576 - distributed.nanny - INFO - Closing Nanny at 'tcp://10.120.104.11:46783'. Reason: nanny-close
+2023-04-04 14:32:32,576 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2023-04-04 14:32:35,777 - distributed.nanny - WARNING - Worker process still alive after 3.1999955749511724 seconds, killing
+2023-04-04 14:32:35,778 - distributed.nanny - WARNING - Worker process still alive after 3.1999995422363288 seconds, killing
+2023-04-04 14:32:36,577 - distributed.nanny - ERROR - Error in Nanny killing Worker subprocess
+Traceback (most recent call last):
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/tasks.py", line 456, in wait_for
+    return fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/nanny.py", line 607, in close
+    await self.kill(timeout=timeout, reason=reason)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/nanny.py", line 390, in kill
+    await self.process.kill(reason=reason, timeout=0.8 * (deadline - time()))
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/nanny.py", line 844, in kill
+    await process.join(max(0, deadline - time()))
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/process.py", line 330, in join
+    await wait_for(asyncio.shield(self._exit_future), timeout)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/utils.py", line 1849, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/tasks.py", line 458, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2023-04-04 14:32:36,579 - distributed.nanny - ERROR - Error in Nanny killing Worker subprocess
+Traceback (most recent call last):
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/tasks.py", line 456, in wait_for
+    return fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/nanny.py", line 607, in close
+    await self.kill(timeout=timeout, reason=reason)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/nanny.py", line 390, in kill
+    await self.process.kill(reason=reason, timeout=0.8 * (deadline - time()))
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/nanny.py", line 844, in kill
+    await process.join(max(0, deadline - time()))
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/process.py", line 330, in join
+    await wait_for(asyncio.shield(self._exit_future), timeout)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/utils.py", line 1849, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/tasks.py", line 458, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2023-04-04 14:32:36,580 - distributed.process - INFO - reaping stray process <SpawnProcess name='Dask Worker process (from Nanny)' pid=1305365 parent=1305323 started daemon>
+2023-04-04 14:32:36,580 - distributed.process - INFO - reaping stray process <SpawnProcess name='Dask Worker process (from Nanny)' pid=1305362 parent=1305323 started daemon>
+2023-04-04 14:32:36,871 - distributed.process - WARNING - [<AsyncProcess Dask Worker process (from Nanny)>] process 1305362 exit status was already read will report exitcode 255
+2023-04-04 14:32:37,236 - distributed.process - WARNING - [<AsyncProcess Dask Worker process (from Nanny)>] process 1305365 exit status was already read will report exitcode 255

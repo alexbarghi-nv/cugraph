@@ -1,0 +1,28 @@
+RUNNING: "python -m distributed.cli.dask_scheduler --protocol=tcp
+                    --scheduler-file /root/cugraph/python/cugraph-pyg/cugraph_pyg/examples/scheduler.json
+                "
+/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/cli/dask_scheduler.py:140: FutureWarning: dask-scheduler is deprecated and will be removed in a future release; use `dask scheduler` instead
+  warnings.warn(
+2023-04-04 05:01:12,501 - distributed.scheduler - INFO - -----------------------------------------------
+2023-04-04 05:01:13,177 - distributed.scheduler - INFO - State start
+2023-04-04 05:01:13,191 - distributed.scheduler - INFO - -----------------------------------------------
+2023-04-04 05:01:13,191 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.120.104.11:8786
+2023-04-04 05:01:13,192 - distributed.scheduler - INFO -   dashboard at:  http://10.120.104.11:8787/status
+2023-04-04 05:01:22,406 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://10.120.104.11:43827', status: init, memory: 0, processing: 0>
+2023-04-04 05:01:22,409 - distributed.scheduler - INFO - Starting worker compute stream, tcp://10.120.104.11:43827
+2023-04-04 05:01:22,409 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:54660
+2023-04-04 05:01:22,409 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://10.120.104.11:40383', status: init, memory: 0, processing: 0>
+2023-04-04 05:01:22,410 - distributed.scheduler - INFO - Starting worker compute stream, tcp://10.120.104.11:40383
+2023-04-04 05:01:22,410 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:54672
+2023-04-04 05:01:39,277 - distributed._signals - INFO - Received signal SIGINT (2)
+2023-04-04 05:01:39,277 - distributed.scheduler - INFO - Scheduler closing...
+2023-04-04 05:01:39,277 - distributed.core - INFO - Connection to tcp://10.120.104.11:54660 has been closed.
+2023-04-04 05:01:39,277 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://10.120.104.11:43827', status: running, memory: 0, processing: 0>
+2023-04-04 05:01:39,278 - distributed.core - INFO - Removing comms to tcp://10.120.104.11:43827
+2023-04-04 05:01:39,278 - distributed.core - INFO - Connection to tcp://10.120.104.11:54672 has been closed.
+2023-04-04 05:01:39,278 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://10.120.104.11:40383', status: running, memory: 0, processing: 0>
+2023-04-04 05:01:39,278 - distributed.core - INFO - Removing comms to tcp://10.120.104.11:40383
+2023-04-04 05:01:39,278 - distributed.scheduler - INFO - Lost all workers
+2023-04-04 05:01:39,278 - distributed.scheduler - INFO - Scheduler closing all comms
+2023-04-04 05:01:39,279 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.120.104.11:8786'
+2023-04-04 05:01:39,279 - distributed.scheduler - INFO - End scheduler

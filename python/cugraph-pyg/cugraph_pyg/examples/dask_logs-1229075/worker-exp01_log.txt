@@ -1,0 +1,56 @@
+RUNNING: "python -m dask_cuda.cli.dask_cuda_worker --rmm-pool-size=28G
+             --local-directory=/tmp/
+             --scheduler-file=/root/cugraph/python/cugraph-pyg/cugraph_pyg/examples/scheduler.json
+             --memory-limit=auto
+             --device-memory-limit=auto
+            "
+2023-04-04 04:57:40,884 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.120.104.11:43075'
+2023-04-04 04:57:40,886 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.120.104.11:43895'
+2023-04-04 04:57:42,021 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-w571bi38', purging
+2023-04-04 04:57:42,021 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-21gekk7o', purging
+2023-04-04 04:57:42,021 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-04 04:57:42,022 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-04 04:57:42,028 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-04 04:57:42,028 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-04 04:57:42,273 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-04-04 04:57:42,291 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-04-04 04:57:43,607 - distributed.worker - INFO -       Start worker at:  tcp://10.120.104.11:41047
+2023-04-04 04:57:43,607 - distributed.worker - INFO -          Listening to:  tcp://10.120.104.11:41047
+2023-04-04 04:57:43,607 - distributed.worker - INFO -          dashboard at:        10.120.104.11:43745
+2023-04-04 04:57:43,607 - distributed.worker - INFO - Waiting to connect to:   tcp://10.120.104.11:8786
+2023-04-04 04:57:43,607 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 04:57:43,607 - distributed.worker - INFO -               Threads:                          1
+2023-04-04 04:57:43,607 - distributed.worker - INFO -                Memory:                 755.28 GiB
+2023-04-04 04:57:43,607 - distributed.worker - INFO -       Local Directory: /tmp/dask-worker-space/worker-_d2jj_kc
+2023-04-04 04:57:43,607 - distributed.worker - INFO - Starting Worker plugin RMMSetup-ed68c55f-2493-426f-92f7-3bb0f36ee7b8
+2023-04-04 04:57:43,620 - distributed.worker - INFO -       Start worker at:  tcp://10.120.104.11:35375
+2023-04-04 04:57:43,620 - distributed.worker - INFO -          Listening to:  tcp://10.120.104.11:35375
+2023-04-04 04:57:43,620 - distributed.worker - INFO -          dashboard at:        10.120.104.11:44397
+2023-04-04 04:57:43,620 - distributed.worker - INFO - Waiting to connect to:   tcp://10.120.104.11:8786
+2023-04-04 04:57:43,620 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 04:57:43,620 - distributed.worker - INFO -               Threads:                          1
+2023-04-04 04:57:43,620 - distributed.worker - INFO -                Memory:                 755.28 GiB
+2023-04-04 04:57:43,620 - distributed.worker - INFO -       Local Directory: /tmp/dask-worker-space/worker-bejlrczv
+2023-04-04 04:57:43,621 - distributed.worker - INFO - Starting Worker plugin RMMSetup-04f711a9-41ec-4bdb-a013-f9b869c9bee2
+2023-04-04 04:57:43,771 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-7e0c6fd1-b856-4121-bc6c-49152d8cbd83
+2023-04-04 04:57:43,772 - distributed.worker - INFO - Starting Worker plugin PreImport-f8bda99d-1aa7-4c56-98db-67dd55830ca2
+2023-04-04 04:57:43,772 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-6f319acc-70c5-4438-9f53-5c9f5a5f5aac
+2023-04-04 04:57:43,772 - distributed.worker - INFO - Starting Worker plugin PreImport-f2242c56-d479-4d50-9b10-72a59f15b97f
+2023-04-04 04:57:43,772 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 04:57:43,773 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 04:57:43,782 - distributed.worker - INFO -         Registered to:   tcp://10.120.104.11:8786
+2023-04-04 04:57:43,782 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 04:57:43,783 - distributed.worker - INFO -         Registered to:   tcp://10.120.104.11:8786
+2023-04-04 04:57:43,783 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 04:57:43,784 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:8786
+2023-04-04 04:57:43,786 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:8786
+2023-04-04 05:00:46,865 - distributed.nanny - INFO - Closing Nanny at 'tcp://10.120.104.11:43075'. Reason: nanny-close
+2023-04-04 05:00:46,865 - distributed.worker - INFO - Stopping worker at tcp://10.120.104.11:35375. Reason: worker-handle-scheduler-connection-broken
+2023-04-04 05:00:46,865 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2023-04-04 05:00:46,865 - distributed.worker - INFO - Stopping worker at tcp://10.120.104.11:41047. Reason: worker-handle-scheduler-connection-broken
+2023-04-04 05:00:46,866 - distributed.nanny - INFO - Closing Nanny at 'tcp://10.120.104.11:43895'. Reason: nanny-close
+2023-04-04 05:00:46,867 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2023-04-04 05:00:50,068 - distributed.nanny - WARNING - Worker process still alive after 3.1999954223632816 seconds, killing
+2023-04-04 05:00:50,068 - distributed.nanny - WARNING - Worker process still alive after 3.199999389648438 seconds, killing
+2023-04-04 05:00:50,277 - distributed.nanny - INFO - Worker process 1229246 was killed by signal 9
+2023-04-04 05:00:50,400 - distributed.nanny - INFO - Worker process 1229243 was killed by signal 9

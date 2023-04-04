@@ -15,6 +15,7 @@ import os
 
 from typing import Union
 
+import cupy
 import cudf
 import dask_cudf
 import cugraph
@@ -197,11 +198,19 @@ class EXPERIMENTAL__BulkSampler:
             sample_fn = cugraph.dask.uniform_neighbor_sample
             self.__sample_call_args["_multiple_clients"] = True
 
+        start_list = self.__batches[batch_id_filter][self.start_col_name]
+        batch_id_list = self.__batches[batch_id_filter][self.batch_col_name]
+
+        assert len(start_list) <= self.seeds_per_call
+        print(len(start_list), self.seeds_per_call, flush=True)
+        assert len(batch_id_list) <= self.seeds_per_call
+        print(len(batch_id_list), self.seeds_per_call, flush=True)
+
         samples = sample_fn(
             self.__graph,
             **self.__sample_call_args,
-            start_list=self.__batches[self.start_col_name][batch_id_filter],
-            batch_id_list=self.__batches[self.batch_col_name][batch_id_filter],
+            start_list=start_list,
+            batch_id_list=batch_id_list,
             with_edge_properties=True,
         )
 

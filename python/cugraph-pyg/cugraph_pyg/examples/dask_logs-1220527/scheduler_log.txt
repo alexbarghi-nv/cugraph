@@ -1,0 +1,42 @@
+RUNNING: "python -m distributed.cli.dask_scheduler --protocol=tcp
+                    --scheduler-file /root/cugraph/python/cugraph-pyg/cugraph_pyg/examples/scheduler.json
+                "
+/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/cli/dask_scheduler.py:140: FutureWarning: dask-scheduler is deprecated and will be removed in a future release; use `dask scheduler` instead
+  warnings.warn(
+2023-04-04 04:47:28,656 - distributed.scheduler - INFO - -----------------------------------------------
+2023-04-04 04:47:29,339 - distributed.scheduler - INFO - State start
+2023-04-04 04:47:29,353 - distributed.scheduler - INFO - -----------------------------------------------
+2023-04-04 04:47:29,354 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.120.104.11:8786
+2023-04-04 04:47:29,354 - distributed.scheduler - INFO -   dashboard at:  http://10.120.104.11:8787/status
+2023-04-04 04:47:38,566 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://10.120.104.11:43681', status: init, memory: 0, processing: 0>
+2023-04-04 04:47:38,569 - distributed.scheduler - INFO - Starting worker compute stream, tcp://10.120.104.11:43681
+2023-04-04 04:47:38,569 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:49370
+2023-04-04 04:47:38,576 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://10.120.104.11:43373', status: init, memory: 0, processing: 0>
+2023-04-04 04:47:38,576 - distributed.scheduler - INFO - Starting worker compute stream, tcp://10.120.104.11:43373
+2023-04-04 04:47:38,576 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:49374
+2023-04-04 04:48:07,304 - distributed.scheduler - INFO - Receive client connection: Client-e4787d45-d2a3-11ed-a14e-5cff35c1a711
+2023-04-04 04:48:07,305 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:39336
+2023-04-04 04:48:07,553 - distributed.worker - INFO - Run out-of-band function '_func_set_scheduler_as_nccl_root'
+2023-04-04 04:48:08,132 - distributed.scheduler - INFO - Receive client connection: Client-e4f0f504-d2a3-11ed-a14d-5cff35c1a711
+2023-04-04 04:48:08,133 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:39358
+2023-04-04 04:48:08,783 - distributed.worker - INFO - Run out-of-band function '_func_set_scheduler_as_nccl_root'
+2023-04-04 04:49:14,828 - distributed.scheduler - INFO - Remove client Client-e4f0f504-d2a3-11ed-a14d-5cff35c1a711
+2023-04-04 04:49:14,828 - distributed.core - INFO - Received 'close-stream' from tcp://10.120.104.11:39358; closing.
+2023-04-04 04:49:14,829 - distributed.scheduler - INFO - Remove client Client-e4f0f504-d2a3-11ed-a14d-5cff35c1a711
+2023-04-04 04:49:14,829 - distributed.scheduler - INFO - Close client connection: Client-e4f0f504-d2a3-11ed-a14d-5cff35c1a711
+2023-04-04 04:49:14,847 - distributed.scheduler - INFO - Remove client Client-e4787d45-d2a3-11ed-a14e-5cff35c1a711
+2023-04-04 04:49:14,847 - distributed.core - INFO - Received 'close-stream' from tcp://10.120.104.11:39336; closing.
+2023-04-04 04:49:14,847 - distributed.scheduler - INFO - Remove client Client-e4787d45-d2a3-11ed-a14e-5cff35c1a711
+2023-04-04 04:49:14,847 - distributed.scheduler - INFO - Close client connection: Client-e4787d45-d2a3-11ed-a14e-5cff35c1a711
+2023-04-04 04:50:22,743 - distributed._signals - INFO - Received signal SIGINT (2)
+2023-04-04 04:50:22,743 - distributed.scheduler - INFO - Scheduler closing...
+2023-04-04 04:50:22,744 - distributed.core - INFO - Connection to tcp://10.120.104.11:49370 has been closed.
+2023-04-04 04:50:22,744 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://10.120.104.11:43681', status: running, memory: 0, processing: 0>
+2023-04-04 04:50:22,744 - distributed.core - INFO - Removing comms to tcp://10.120.104.11:43681
+2023-04-04 04:50:22,744 - distributed.core - INFO - Connection to tcp://10.120.104.11:49374 has been closed.
+2023-04-04 04:50:22,744 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://10.120.104.11:43373', status: running, memory: 0, processing: 0>
+2023-04-04 04:50:22,744 - distributed.core - INFO - Removing comms to tcp://10.120.104.11:43373
+2023-04-04 04:50:22,744 - distributed.scheduler - INFO - Lost all workers
+2023-04-04 04:50:22,745 - distributed.scheduler - INFO - Scheduler closing all comms
+2023-04-04 04:50:22,746 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.120.104.11:8786'
+2023-04-04 04:50:22,746 - distributed.scheduler - INFO - End scheduler

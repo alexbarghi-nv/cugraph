@@ -163,14 +163,14 @@ def train(
 
     if rank == 0:
         print("Rank 0 downloading dataset")
-        dataset = NodePropPredDataset(name="ogbn-mag")
+        dataset = NodePropPredDataset(name="ogbn-mag", root='/datasets/abarghi')
         data = dataset[0]
         download_event.set()
         print("Dataset downloaded")
     else:
         if download_event.wait(timeout=1000):
             print(f"Rank {rank} loading dataset")
-            dataset = NodePropPredDataset(name="ogbn-mag")
+            dataset = NodePropPredDataset(name="ogbn-mag", root='/datasets/abarghi')
             data = dataset[0]
             print(f"Rank {rank} loaded dataset successfully")
 
@@ -273,8 +273,8 @@ def train(
             train_nodes,
             batch_size=250,
             num_neighbors=[10, 10, 10],
-            seeds_per_call=1000,
-            batches_per_partition=2,
+            seeds_per_call=5000,
+            batches_per_partition=8,
             replace=False,
             directory="/tmp/ramdisk/samples",
         )
@@ -294,6 +294,7 @@ def train(
             for iter_i, hetero_data in enumerate(cugraph_bulk_loader):
                 end_time_sample = time.perf_counter_ns()
                 total_time_sample += (end_time_sample - start_time_sample) / 1e9
+                print(f'sample time iter {iter_i}: {(end_time_sample - start_time_sample) / 1e9:3.4f} s')
                 num_batches += 1
 
                 if iter_i % 20 == 0:
@@ -302,6 +303,7 @@ def train(
                 # train
                 train_mask = hetero_data.train_dict["paper"]
                 y_true = hetero_data.y_dict["paper"]
+                print('ei:', hetero_data.edge_index_dict[("paper","cites","paper")].shape)
 
                 start_time_forward = time.perf_counter_ns()
                 y_pred = model(
@@ -345,7 +347,6 @@ def train(
                 f"total time: {(end_time_train - start_time_train) / 1e9:3.4f} s"
                 f"\nloader create time per batch: {total_time_loader / num_batches} s"
                 f"\nsampling/load time per batch: {total_time_sample / num_batches} s"
-                f"\nload time per batch: {cugraph_bulk_loader.timer / num_batches} s"
                 f"\nforward time per batch: {total_time_forward / num_batches} s"
                 f"\nbackward time per batch: {total_time_backward / num_batches} s"
                 f"\nnum batches: {num_batches}"

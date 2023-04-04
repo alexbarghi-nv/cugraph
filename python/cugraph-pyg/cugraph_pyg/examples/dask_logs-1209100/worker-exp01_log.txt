@@ -1,0 +1,116 @@
+RUNNING: "python -m dask_cuda.cli.dask_cuda_worker --rmm-pool-size=28G
+             --local-directory=/tmp/
+             --scheduler-file=/root/cugraph/python/cugraph-pyg/cugraph_pyg/examples/scheduler.json
+             --memory-limit=auto
+             --device-memory-limit=auto
+            "
+2023-04-04 04:33:30,385 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.120.104.11:34529'
+2023-04-04 04:33:30,388 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.120.104.11:40059'
+2023-04-04 04:33:31,528 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ollgo3_j', purging
+2023-04-04 04:33:31,528 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-04 04:33:31,528 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-04 04:33:31,533 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-04 04:33:31,533 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-04 04:33:31,785 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-04-04 04:33:31,791 - distributed.nanny - INFO - Closing Nanny at 'tcp://10.120.104.11:34529'. Reason: nanny-close
+2023-04-04 04:33:31,791 - distributed.nanny - INFO - Closing Nanny at 'tcp://10.120.104.11:40059'. Reason: nanny-close
+2023-04-04 04:33:33,792 - distributed.nanny - ERROR - Worker process died unexpectedly
+Process Dask Worker process (from Nanny):
+Process Dask Worker process (from Nanny):
+2023-04-04 04:33:33,792 - distributed.nanny - ERROR - Worker process died unexpectedly
+Traceback (most recent call last):
+  File "/opt/conda/envs/rapids/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/rapids/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/process.py", line 202, in _run
+    target(*args, **kwargs)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/nanny.py", line 990, in _run
+    asyncio.run(run())
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/base_events.py", line 1906, in _run_once
+    handle._run()
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/nanny.py", line 930, in run
+    async with worker:
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/core.py", line 549, in __aenter__
+    await self
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/core.py", line 536, in start
+    await wait_for(self.start_unsafe(), timeout=timeout)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/utils.py", line 1849, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/worker.py", line 1413, in start_unsafe
+    import distributed.dashboard.worker
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/dashboard/worker.py", line 12, in <module>
+    from distributed.dashboard.core import BokehApplication
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/dashboard/core.py", line 8, in <module>
+    from bokeh.server.server import BokehTornado
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/bokeh/server/server.py", line 65, in <module>
+    from .tornado import DEFAULT_WEBSOCKET_MAX_MESSAGE_SIZE_BYTES, BokehTornado
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/bokeh/server/tornado.py", line 58, in <module>
+    from .contexts import ApplicationContext
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/bokeh/server/contexts.py", line 45, in <module>
+    from ..protocol.exceptions import ProtocolError
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/bokeh/protocol/__init__.py", line 41, in <module>
+    from .messages.ack import ack
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/bokeh/protocol/messages/__init__.py", line 25, in <module>
+    from .error import error
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/bokeh/protocol/messages/error.py", line 52, in <module>
+    class error(Message[Error]):
+  File "/opt/conda/envs/rapids/lib/python3.10/typing.py", line 1350, in __init_subclass__
+    def __init_subclass__(cls, *args, **kwargs):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/opt/conda/envs/rapids/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/rapids/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/process.py", line 202, in _run
+    target(*args, **kwargs)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/nanny.py", line 990, in _run
+    asyncio.run(run())
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/base_events.py", line 1906, in _run_once
+    handle._run()
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/nanny.py", line 930, in run
+    async with worker:
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/core.py", line 549, in __aenter__
+    await self
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/core.py", line 536, in start
+    await wait_for(self.start_unsafe(), timeout=timeout)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/utils.py", line 1849, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/opt/conda/envs/rapids/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/worker.py", line 1430, in start_unsafe
+    await preload.start()
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/preloading.py", line 205, in start
+    result = dask_setup.callback(
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/dask_cuda/initialize.py", line 159, in dask_setup
+    _create_cuda_context()
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/dask_cuda/initialize.py", line 31, in _create_cuda_context
+    distributed.comm.ucx.init_once()
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/comm/ucx.py", line 136, in init_once
+    pre_existing_cuda_context = has_cuda_context()
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/distributed/diagnostics/nvml.py", line 196, in has_cuda_context
+    handle = pynvml.nvmlDeviceGetHandleByIndex(index)
+  File "/opt/conda/envs/rapids/lib/python3.10/site-packages/pynvml/nvml.py", line 1654, in nvmlDeviceGetHandleByIndex
+    ret = fn(c_index, byref(device))
+KeyboardInterrupt
+2023-04-04 04:33:34,057 - distributed.nanny - INFO - Worker process 1209280 exited with status 1
+2023-04-04 04:33:34,084 - distributed.nanny - INFO - Worker process 1209277 exited with status 1
