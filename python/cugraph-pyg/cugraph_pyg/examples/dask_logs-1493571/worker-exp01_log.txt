@@ -1,0 +1,93 @@
+RUNNING: "python -m dask_cuda.cli.dask_cuda_worker --rmm-pool-size=28G
+             --local-directory=/tmp/
+             --scheduler-file=/root/cugraph/python/cugraph-pyg/cugraph_pyg/examples/scheduler.json
+             --memory-limit=auto
+             --device-memory-limit=auto
+            "
+2023-04-04 18:19:16,642 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.120.104.11:35291'
+2023-04-04 18:19:16,644 - distributed.nanny - INFO -         Start Nanny at: 'tcp://10.120.104.11:42329'
+2023-04-04 18:19:17,827 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-04 18:19:17,827 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-04 18:19:17,827 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-p4vywqxc', purging
+2023-04-04 18:19:17,828 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-04 18:19:17,828 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-04 18:19:18,141 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-04-04 18:19:18,143 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-04-04 18:19:19,354 - distributed.worker - INFO -       Start worker at:  tcp://10.120.104.11:46873
+2023-04-04 18:19:19,355 - distributed.worker - INFO -          Listening to:  tcp://10.120.104.11:46873
+2023-04-04 18:19:19,355 - distributed.worker - INFO -          dashboard at:        10.120.104.11:43817
+2023-04-04 18:19:19,355 - distributed.worker - INFO - Waiting to connect to:   tcp://10.120.104.11:8786
+2023-04-04 18:19:19,355 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 18:19:19,355 - distributed.worker - INFO -               Threads:                          1
+2023-04-04 18:19:19,355 - distributed.worker - INFO -                Memory:                 755.28 GiB
+2023-04-04 18:19:19,355 - distributed.worker - INFO -       Local Directory: /tmp/dask-worker-space/worker-c_g0om3z
+2023-04-04 18:19:19,355 - distributed.worker - INFO - Starting Worker plugin RMMSetup-cb04d80f-001e-459d-a20f-189c3c4f1160
+2023-04-04 18:19:19,369 - distributed.worker - INFO -       Start worker at:  tcp://10.120.104.11:40163
+2023-04-04 18:19:19,370 - distributed.worker - INFO -          Listening to:  tcp://10.120.104.11:40163
+2023-04-04 18:19:19,370 - distributed.worker - INFO -          dashboard at:        10.120.104.11:33303
+2023-04-04 18:19:19,370 - distributed.worker - INFO - Waiting to connect to:   tcp://10.120.104.11:8786
+2023-04-04 18:19:19,370 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 18:19:19,370 - distributed.worker - INFO -               Threads:                          1
+2023-04-04 18:19:19,370 - distributed.worker - INFO -                Memory:                 755.28 GiB
+2023-04-04 18:19:19,370 - distributed.worker - INFO -       Local Directory: /tmp/dask-worker-space/worker-yyboaf30
+2023-04-04 18:19:19,370 - distributed.worker - INFO - Starting Worker plugin PreImport-6acf7910-a3f7-4ea6-9871-c0cc00119b9d
+2023-04-04 18:19:19,370 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-3dd6f0ee-53f1-4d14-81ca-e9624bc16602
+2023-04-04 18:19:19,371 - distributed.worker - INFO - Starting Worker plugin RMMSetup-5e3ec923-8a2e-4a47-aa39-f3516cd76e20
+2023-04-04 18:19:19,495 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-c6bf2e8a-593f-44e8-a57d-1ef6e5bbea2c
+2023-04-04 18:19:19,495 - distributed.worker - INFO - Starting Worker plugin PreImport-048d853f-3255-41b6-996b-a431b3c351ff
+2023-04-04 18:19:19,496 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 18:19:19,524 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 18:19:19,527 - distributed.worker - INFO -         Registered to:   tcp://10.120.104.11:8786
+2023-04-04 18:19:19,527 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 18:19:19,529 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:8786
+2023-04-04 18:19:19,536 - distributed.worker - INFO -         Registered to:   tcp://10.120.104.11:8786
+2023-04-04 18:19:19,536 - distributed.worker - INFO - -------------------------------------------------
+2023-04-04 18:19:19,538 - distributed.core - INFO - Starting established connection to tcp://10.120.104.11:8786
+2023-04-04 18:19:35,644 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:19:35,644 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:19:36,471 - distributed.worker - INFO - Run out-of-band function '_func_init_all'
+2023-04-04 18:19:36,471 - distributed.worker - INFO - Run out-of-band function '_func_init_all'
+2023-04-04 18:19:37,101 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:19:37,113 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:19:37,117 - distributed.worker - INFO - Run out-of-band function '_func_init_all'
+2023-04-04 18:19:37,121 - distributed.worker - INFO - Run out-of-band function '_func_init_all'
+2023-04-04 18:19:45,324 - distributed.worker - INFO - Run out-of-band function '_subcomm_init'
+2023-04-04 18:19:45,647 - distributed.worker - INFO - Run out-of-band function '_subcomm_init'
+2023-04-04 18:19:52,278 - distributed.core - INFO - Event loop was unresponsive in Worker for 14.95s.  This is often caused by long-running GIL-holding functions or moving large chunks of data. This can cause timeouts and instability.
+2023-04-04 18:19:52,278 - distributed.core - INFO - Event loop was unresponsive in Worker for 14.94s.  This is often caused by long-running GIL-holding functions or moving large chunks of data. This can cause timeouts and instability.
+2023-04-04 18:19:52,284 - distributed.worker - INFO - Run out-of-band function '_subcomm_init'
+2023-04-04 18:19:52,284 - distributed.worker - INFO - Run out-of-band function '_subcomm_init'
+2023-04-04 18:20:02,211 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:02,212 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:02,661 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:02,661 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:04,021 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:04,022 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:05,114 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:05,115 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:06,201 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:06,201 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:07,290 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:07,292 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:08,378 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:08,379 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:09,154 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:09,156 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:09,949 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:09,949 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:11,215 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:11,215 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:11,635 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:11,636 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:12,898 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:12,898 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:13,970 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:13,972 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:15,046 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:15,047 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:16,108 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:16,109 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:17,187 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:17,188 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:18,245 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
+2023-04-04 18:20:18,246 - distributed.worker - INFO - Run out-of-band function '_func_ucp_listener_port'
