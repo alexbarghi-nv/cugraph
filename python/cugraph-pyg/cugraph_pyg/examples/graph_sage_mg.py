@@ -271,10 +271,10 @@ def train(
         cugraph_bulk_loader = CuGraphNeighborLoader(
             cugraph_store,
             train_nodes,
-            batch_size=250,
+            batch_size=500,
             num_neighbors=[10, 10, 10],
-            seeds_per_call=5000,
-            batches_per_partition=8,
+            seeds_per_call=18_000,
+            batches_per_partition=20,
             replace=False,
             directory="/tmp/ramdisk/samples",
         )

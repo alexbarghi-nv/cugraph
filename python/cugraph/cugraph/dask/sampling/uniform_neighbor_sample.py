@@ -263,19 +263,16 @@ def uniform_neighbor_sample(
     Does neighborhood sampling, which samples nodes from a graph based on the
     current node's neighbors, with a corresponding fanout value at each hop.
 
-    Note: This is a pylibcugraph-enabled algorithm, which requires that the
-    graph was created with legacy_renum_only=True.
-
     Parameters
     ----------
     input_graph : cugraph.Graph
         cuGraph graph, which contains connectivity information as dask cudf
         edge list dataframe
 
-    start_list : list or cudf.Series (int32)
+    start_list : int, list, cudf.Series, or dask_cudf.Series (int32 or int64)
         a list of starting vertices for sampling
 
-    fanout_vals : list (int32)
+    fanout_vals : list
         List of branching out (fan-out) degrees per starting vertex for each
         hop level.
 
@@ -286,15 +283,16 @@ def uniform_neighbor_sample(
         Flag to specify whether to return edge properties (weight, edge id,
         edge type, batch id, hop id) with the sampled edges.
 
-    batch_id_list: list (int32), optional (default=None)
+    batch_id_list: cudf.Series or dask_cudf.Series (int32), optional (default=None)
         List of batch ids that will be returned with the sampled edges if
         with_edge_properties is set to True.
 
-    label_list: list (int32), optional (default=None)
+    label_list: cudf.Series or dask_cudf.Series (int32), optional (default=None)
         List of unique batch id labels.  Used along with
         label_to_output_comm_rank to assign batch ids to GPUs.
 
-    label_to_out_comm_rank (int32), optional (default=None)
+    label_to_out_comm_rank: cudf.Series or dask_cudf.Series (int32),
+    optional (default=None)
         List of output GPUs (by rank) corresponding to batch
         id labels in the label list.  Used to assign each batch
         id to a GPU.
@@ -399,20 +397,32 @@ def uniform_neighbor_sample(
     start_list = start_list.rename(start_col_name)
     if batch_id_list is not None:
         batch_id_list = batch_id_list.rename(batch_col_name)
-
-        if hasattr(start_list, 'compute'):
-            start_list.divisions = start_list.compute_current_divisions()
-            batch_id_list.divisions = batch_id_list.compute_current_divisions()
-            ddf = dask_cudf.concat([start_list, batch_id_list], axis=1) 
+        if hasattr(start_list, "compute"):
+            # mg input
+            start_list = start_list.to_frame()
+            batch_id_list = batch_id_list.to_frame()
+            ddf = start_list.merge(
+                batch_id_list,
+                how="left",
+                left_index=True,
+                right_index=True,
+            )
         else:
-            ddf = cudf.concat([start_list, batch_id_list], axis=1) 
+            # sg input
+            ddf = cudf.concat(
+                [
+                    start_list,
+                    batch_id_list,
+                ],
+                axis=1,
+            )
     else:
         ddf = start_list.to_frame()
-    
-    if input_graph.renumbered:
-        ddf = input_graph.lookup_internal_vertex_id(ddf)
 
-    if hasattr(ddf, 'compute'):
+    if input_graph.renumbered:
+        ddf = input_graph.lookup_internal_vertex_id(ddf, column_name=start_col_name)
+
+    if hasattr(ddf, "compute"):
         ddf = get_distributed_data(ddf)
         wait(ddf)
         ddf = ddf.worker_to_parts
