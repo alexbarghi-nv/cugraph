@@ -225,6 +225,8 @@ class EXPERIMENTAL__BulkSampleLoader:
                 edge_dict,
             )
         else:
+            import time
+            start_time_features = time.perf_counter_ns()
             out = torch_geometric.loader.utils.filter_custom_store(
                 self.__feature_store,
                 self.__graph_store,
@@ -233,6 +235,8 @@ class EXPERIMENTAL__BulkSampleLoader:
                 sampler_output.col,
                 sampler_output.edge,
             )
+            end_time_features = time.perf_counter_ns()
+            print(f'get features time: {(end_time_features - start_time_features) / 1e9:3.4f} s', flush=True)
 
             return out
 

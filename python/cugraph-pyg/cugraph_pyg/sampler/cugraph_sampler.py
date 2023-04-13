@@ -54,6 +54,8 @@ def _sampler_output_from_sampling_results(
     HeteroSamplerOutput, if PyG is installed.
     dict, if PyG is not installed.
     """
+    import time
+    renumber_start = time.perf_counter_ns()
     nodes_of_interest = torch.unique(
         torch.stack(
             [
@@ -68,12 +70,17 @@ def _sampler_output_from_sampling_results(
     noi_index = graph_store._get_vertex_groups_from_sample(
         nodes_of_interest, is_sorted=True
     )
+    renumber_end = time.perf_counter_ns()
+    print(f'renumber vertices time: {(renumber_end - renumber_start) / 1e9:3.4f} s', flush=True)
 
+    renumber_start = time.perf_counter_ns()
     # Get the new edge index (by type as expected for HeteroData)
     # FIXME handle edge ids/types after the C++ updates
     row_dict, col_dict = graph_store._get_renumbered_edge_groups_from_sample(
         sampling_results, noi_index
     )
+    renumber_end = time.perf_counter_ns()
+    print(f'renumber edges time: {(renumber_end - renumber_start) / 1e9:3.4f} s', flush=True)
 
     out = (noi_index, row_dict, col_dict, None)
 
