@@ -491,9 +491,10 @@ class EXPERIMENTAL__CuGraphStore:
                 if len(f) > 0
                 else get_empty_df(),
                 meta=get_empty_df(),
-            ).reset_index(drop=True)
+            ).reset_index(drop=True) # should be ok for dask
         else:
-            df = cudf.from_pandas(df).reset_index(drop=True)
+            df = cudf.from_pandas(df)
+            df.reset_index(drop=True, inplace=True)
 
         graph = cugraph.MultiGraph(directed=True)
         if multi_gpu:
