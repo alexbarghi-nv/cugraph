@@ -460,10 +460,11 @@ class EXPERIMENTAL__CuGraphStore:
         if multi_gpu:
             client = distributed.get_client()
             nworkers = len(client.scheduler_info()["workers"])
+            npartitions = nworkers * 4
 
-            na_src = np.array_split(na_src, nworkers)
-            na_dst = np.array_split(na_dst, nworkers)
-            na_etp = np.array_split(na_etp.astype('int64'), nworkers)
+            na_src = np.array_split(na_src, npartitions)
+            na_dst = np.array_split(na_dst, npartitions)
+            na_etp = np.array_split(na_etp.astype('int64'), npartitions)
 
             scna_src = client.scatter(na_src)
             shapes = [n.shape for n in na_src]
@@ -512,7 +513,8 @@ class EXPERIMENTAL__CuGraphStore:
             del etp_dar
 
             df.etp=df.etp.astype('int32')
-            print(df.etp.dtype)
+
+            print('partitions:', df.npartitions)
 
             # Ensure the dataframe is constructed on each partition
             # instead of adding additional synchronization head from potential
