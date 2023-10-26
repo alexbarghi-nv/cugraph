@@ -320,7 +320,13 @@ class EXPERIMENTAL__CuGraphStore:
     def __del__(self):
         if self.__is_graph_owner:
             if isinstance(self.__graph._plc_graph, dict):
-                distributed.get_client().unpublish_dataset("cugraph_graph")
+                try:
+                    distributed.get_client().unpublish_dataset("cugraph_graph")
+                except:
+                    warnings.warn(
+                        "Could not unpublish graph dataset, most likely because"
+                        " dask has already shut down."
+                    )
             del self.__graph
 
     def __make_offsets(self, input_dict):
@@ -514,8 +520,6 @@ class EXPERIMENTAL__CuGraphStore:
 
             df.etp=df.etp.astype('int32')
 
-            print('partitions:', df.npartitions)
-
             # Ensure the dataframe is constructed on each partition
             # instead of adding additional synchronization head from potential
             # host to device copies.
@@ -535,7 +539,7 @@ class EXPERIMENTAL__CuGraphStore:
                 if len(f) > 0
                 else get_empty_df(),
                 meta=get_empty_df(),
-            ).reset_index(drop=True) # should be ok for dask
+            ) #.reset_index(drop=True) # should be ok for dask
         else:
             df = pandas.DataFrame(
                 {
@@ -568,6 +572,7 @@ class EXPERIMENTAL__CuGraphStore:
                 edge_type="etp",
             )
 
+        del df
         return graph
 
     @property
