@@ -681,15 +681,20 @@ def uniform_neighbor_sample(
         # two disconnected processes (clients) to coordinate a lock
         # https://docs.dask.org/en/stable/futures.html?highlight=lock#distributed.Lock
         lock = Lock("plc_graph_access")
+        error = None
         if lock.acquire(timeout=100):
             try:
                 ddf = _mg_call_plc_uniform_neighbor_sample(**sample_call_kwargs)
+            except Exception as err:
+                error = err
             finally:
                 lock.release()
         else:
             raise RuntimeError(
                 "Failed to acquire lock(plc_graph_access) while trying to sampling"
             )
+        if error is not None:
+            raise error
     else:
         ddf = _mg_call_plc_uniform_neighbor_sample(**sample_call_kwargs)
 

@@ -539,7 +539,7 @@ class EXPERIMENTAL__CuGraphStore:
                 if len(f) > 0
                 else get_empty_df(),
                 meta=get_empty_df(),
-            ) #.reset_index(drop=True) # should be ok for dask
+            ).reset_index(drop=True) # should be ok for dask
         else:
             df = pandas.DataFrame(
                 {
