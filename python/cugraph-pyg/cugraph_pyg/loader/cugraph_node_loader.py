@@ -159,7 +159,10 @@ class EXPERIMENTAL__BulkSampleLoader:
         if batch_size is None or batch_size < 1:
             raise ValueError("Batch size must be >= 1")
 
-        self.__directory = tempfile.TemporaryDirectory(dir=directory)
+        self.__directory = (
+            tempfile.TemporaryDirectory() if directory is None
+            else directory
+        )
 
         if isinstance(num_neighbors, dict):
             raise ValueError("num_neighbors dict is currently unsupported!")
@@ -175,7 +178,7 @@ class EXPERIMENTAL__BulkSampleLoader:
 
         bulk_sampler = BulkSampler(
             batch_size,
-            self.__directory.name,
+            self.__directory if isinstance(self.__directory, str) else self.__directory.name,
             self.__graph_store._subgraph(edge_types),
             fanout_vals=num_neighbors,
             with_replacement=replace,
@@ -219,7 +222,11 @@ class EXPERIMENTAL__BulkSampleLoader:
             )
 
         bulk_sampler.flush()
-        self.__input_files = iter(os.listdir(self.__directory.name))
+        self.__input_files = iter(os.listdir(
+            self.__directory
+            if isinstance(self.__directory, str)
+            else self.__directory.name
+        ))
 
     def __next__(self):
         from time import perf_counter
