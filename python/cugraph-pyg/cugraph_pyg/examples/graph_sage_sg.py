@@ -103,7 +103,7 @@ def train(device: int, features_device: Union[str, int] = "cpu", num_epochs=2) -
     train_mask[train_nodes] = 1
     fs.add_data(train_mask, "paper", "train")
 
-    cugraph_store = CuGraphStore(fs, G, N)
+    cugraph_store = CuGraphStore(fs, G, N, order="CSR")
 
     model = (
         CuGraphSAGE(in_channels=128, hidden_channels=64, out_channels=349, num_layers=3)

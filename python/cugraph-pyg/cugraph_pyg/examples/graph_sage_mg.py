@@ -211,7 +211,7 @@ def train(
         # Rank 0 will initialize the distributed cugraph graph.
         cugraph_store_create_start = time.perf_counter_ns()
         print("G:", G[("paper", "cites", "paper")].shape)
-        cugraph_store = CuGraphStore(fs, G, N, multi_gpu=True)
+        cugraph_store = CuGraphStore(fs, G, N, multi_gpu=True, order="CSR")
         cugraph_store_create_end = time.perf_counter_ns()
         print(
             "cuGraph Store created on rank 0 in "
@@ -236,7 +236,7 @@ def train(
 
             # Will automatically use the stored distributed cugraph graph on rank 0.
             cugraph_store_create_start = time.perf_counter_ns()
-            cugraph_store = CuGraphStore(fs, G, N, multi_gpu=True)
+            cugraph_store = CuGraphStore(fs, G, N, multi_gpu=True, order="CSR")
             cugraph_store_create_end = time.perf_counter_ns()
             print(
                 f"Rank {rank} created cugraph store in "
