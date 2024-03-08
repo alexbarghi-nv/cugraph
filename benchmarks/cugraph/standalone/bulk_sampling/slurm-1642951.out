@@ -1,0 +1,1315 @@
+Node IP: 10.180.3.136
+Num Nodes: 1
+Num GPUs Per Node: 8
+no change     /opt/conda/condabin/conda
+no change     /opt/conda/bin/conda
+no change     /opt/conda/bin/conda-env
+no change     /opt/conda/bin/activate
+no change     /opt/conda/bin/deactivate
+no change     /opt/conda/etc/profile.d/conda.sh
+no change     /opt/conda/etc/fish/conf.d/conda.fish
+no change     /opt/conda/shell/condabin/Conda.psm1
+no change     /opt/conda/shell/condabin/conda-hook.ps1
+no change     /opt/conda/lib/python3.10/site-packages/xontrib/conda.xsh
+no change     /opt/conda/etc/profile.d/conda.csh
+no change     /root/.bashrc
+No action taken.
+
+EnvironmentNameNotFound: Could not find conda environment: rapids
+You can list all discoverable environments with `conda info --envs`.
+
+
+properly waiting for workers to connect
+>>>> Using cluster configurtion for TCP
+>>>> Logs written to: /logs
+wait_for_workers.py - initializing client...done.
+wait_for_workers.py expected 8 but got 0, waiting...
+scheduler started.
+wait_for_workers.py expected 8 but got 0, waiting...
+worker(s) started.
+waiting for worker pid 1832532 to finish before exiting script...
+wait_for_workers.py expected 8 but got 0, waiting...
+wait_for_workers.py expected 8 but got 0, waiting...
+wait_for_workers.py expected 8 but got 0, waiting...
+wait_for_workers.py got 8 workers, done.
+0
+Launching Python Script
+INFO:__main__:starting dask client
+INFO:__main__:dask client started
+INFO:__main__:dataset: ogbn_papers100M
+INFO:__main__:batch size: 512
+INFO:__main__:fanout: [10, 10, 10]
+INFO:__main__:seeds_per_call: 524288
+INFO:__main__:num epochs: 1
+INFO:__main__:ogbn_papers100M
+INFO:__main__:Number of input edges = 1,615,685,872
+INFO:__main__:constructed graph
+/opt/conda/lib/python3.10/site-packages/cudf/core/index.py:3329: FutureWarning: cudf.StringIndex is deprecated and will be removed from cudf in a future version. Use cudf.Index with the appropriate dtype instead.
+  warnings.warn(
+/opt/conda/lib/python3.10/site-packages/cudf/core/index.py:3329: FutureWarning: cudf.StringIndex is deprecated and will be removed from cudf in a future version. Use cudf.Index with the appropriate dtype instead.
+  warnings.warn(
+INFO:__main__:input memory: 38776460928
+/scripts/cugraph_bulk_sampling.py:840: UserWarning: An Exception Occurred!
+  warnings.warn("An Exception Occurred!")
+Traceback (most recent call last):
+  File "/scripts/cugraph_bulk_sampling.py", line 812, in <module>
+    ) = benchmark_cugraph_bulk_sampling(
+  File "/scripts/cugraph_bulk_sampling.py", line 566, in benchmark_cugraph_bulk_sampling
+    os.makedirs(output_subdir)
+  File "/opt/conda/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: '/samples/ogbn_papers100M[1]_b512_f[10, 10, 10]'
+
+Dask client created using /scripts/mg_utils/dask_scheduler.json
+Loading edge index for edge type paper__cites__paper
+Loading node labels for node type paper (offset=0)
+[Errno 17] File exists: '/samples/ogbn_papers100M[1]_b512_f[10, 10, 10]'
+----------------------------------------dataset = ogbn_papers100M completed----------------------------------------
+
+Dask client closed.
+[1706389096.756519] [rno1-m02-b07-dgx1-011:1832771:0]          parser.c:2036 UCX  WARN  unused environment variable: UCX_MEMTYPE_CACHE (maybe: UCX_MEMTYPE_CACHE?)
+[1706389096.756519] [rno1-m02-b07-dgx1-011:1832771:0]          parser.c:2036 UCX  WARN  (set UCX_WARN_UNUSED_ENV_VARS=n to suppress this warning)
+1832460 /bin/bash /scripts/mg_utils/run-dask-process.sh scheduler workers
+1832515 /opt/conda/bin/python3.10 /opt/conda/bin/dask-scheduler --protocol=tcp --scheduler-file /scripts/mg_utils/dask_scheduler.json
+1832532 /opt/conda/bin/python /opt/conda/bin/dask-cuda-worker --rmm-pool-size=28G --rmm-async --local-directory=/tmp/abarghi --scheduler-file=/scripts/mg_utils/dask_scheduler.json --memory-limit=auto --device-memory-limit=auto
+1832535 /opt/conda/bin/python -c from multiprocessing.resource_tracker import main;main(45)
+1832539 /opt/conda/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=46, pipe_handle=56) --multiprocessing-fork
+1832543 /opt/conda/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=46, pipe_handle=61) --multiprocessing-fork
+1832547 /opt/conda/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=46, pipe_handle=70) --multiprocessing-fork
+1832551 /opt/conda/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=46, pipe_handle=77) --multiprocessing-fork
+1832555 /opt/conda/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=46, pipe_handle=84) --multiprocessing-fork
+1832559 /opt/conda/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=46, pipe_handle=91) --multiprocessing-fork
+1832563 /opt/conda/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=46, pipe_handle=98) --multiprocessing-fork
+1832566 /opt/conda/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=46, pipe_handle=101) --multiprocessing-fork
+1832535 /opt/conda/bin/python -c from multiprocessing.resource_tracker import main;main(45)
+1832539 python
+1832543 python
+1832547 python
+1832551 python
+1832555 python
+1832559 python
+1832563 python
+1832566 python
+1832515 /opt/conda/bin/python3.10 /opt/conda/bin/dask-scheduler --protocol=tcp --scheduler-file /scripts/mg_utils/dask_scheduler.json
+1832532 /opt/conda/bin/python /opt/conda/bin/dask-cuda-worker --rmm-pool-size=28G --rmm-async --local-directory=/tmp/abarghi --scheduler-file=/scripts/mg_utils/dask_scheduler.json --memory-limit=auto --device-memory-limit=auto
+srun: Job 1642951 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 1642951
+[2024-01-27 13:06:07,843] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+[2024-01-27 13:06:07,844] torch.distributed.run: [WARNING] 
+[2024-01-27 13:06:07,844] torch.distributed.run: [WARNING] *****************************************
+[2024-01-27 13:06:07,844] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2024-01-27 13:06:07,844] torch.distributed.run: [WARNING] *****************************************
+[W socket.cpp:436] [c10d] The server socket cannot be initialized on [::]:29500 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:663] [c10d] The client socket cannot be initialized to connect to [rno1-m02-b07-dgx1-011.nsv.rno1.nvmetal.net]:29500 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:663] [c10d] The client socket cannot be initialized to connect to [rno1-m02-b07-dgx1-011.nsv.rno1.nvmetal.net]:35119 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:663] [c10d] The client socket cannot be initialized to connect to [rno1-m02-b07-dgx1-011.nsv.rno1.nvmetal.net]:35119 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:663] [c10d] The client socket cannot be initialized to connect to [rno1-m02-b07-dgx1-011.nsv.rno1.nvmetal.net]:35119 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:663] [c10d] The client socket cannot be initialized to connect to [rno1-m02-b07-dgx1-011.nsv.rno1.nvmetal.net]:35119 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:663] [c10d] The client socket cannot be initialized to connect to [rno1-m02-b07-dgx1-011.nsv.rno1.nvmetal.net]:35119 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:663] [c10d] The client socket cannot be initialized to connect to [rno1-m02-b07-dgx1-011.nsv.rno1.nvmetal.net]:35119 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:663] [c10d] The client socket cannot be initialized to connect to [rno1-m02-b07-dgx1-011.nsv.rno1.nvmetal.net]:35119 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:436] [c10d] The server socket cannot be initialized on [::]:35119 (errno: 97 - Address family not supported by protocol).
+[W socket.cpp:663] [c10d] The client socket cannot be initialized to connect to [rno1-m02-b07-dgx1-011.nsv.rno1.nvmetal.net]:35119 (errno: 97 - Address family not supported by protocol).
+worker initialized
+worker initialized
+worker initialized
+worker initializedworker initialized
+
+worker initialized
+worker initialized
+worker initialized
+INFO:bench_cugraph_training:initializing WG comms...
+INFO:bench_cugraph_training:initializing WG comms...
+INFO:bench_cugraph_training:initializing WG comms...
+INFO:bench_cugraph_training:initializing WG comms...
+INFO:bench_cugraph_training:initializing WG comms...
+INFO:bench_cugraph_training:initializing WG comms...
+INFO:bench_cugraph_training:initializing WG comms...
+INFO:bench_cugraph_training:initializing WG comms...
+INFO:bench_cugraph_training:rank 1 successfully initialized WG comms
+INFO:bench_cugraph_training:rank 7 successfully initialized WG comms
+INFO:bench_cugraph_training:rank 2 successfully initialized WG comms
+INFO:bench_cugraph_training:rank 5 successfully initialized WG comms
+INFO:bench_cugraph_training:rank 0 successfully initialized WG comms
+INFO:bench_cugraph_training:rank 6 successfully initialized WG comms
+INFO:bench_cugraph_training:rank 4 successfully initialized WG comms
+INFO:bench_cugraph_training:rank 3 successfully initialized WG comms
+INFO:OGBNPapers100MDataset:Processing dataset...
+INFO:OGBNPapers100MDataset:Processing node features...
+INFO:OGBNPapers100MDataset:Processing edge index...
+INFO:OGBNPapers100MDataset:Processing labels...
+INFO:PyGCuGraphTrainer:creating trainer
+INFO:PyGCuGraphTrainer:creating trainer
+INFO:PyGCuGraphTrainer:creating trainer
+INFO:PyGCuGraphTrainer:creating trainer
+INFO:PyGCuGraphTrainer:creating trainer
+INFO:PyGCuGraphTrainer:creating trainer
+INFO:PyGCuGraphTrainer:creating trainer
+INFO:PyGCuGraphTrainer:creating trainer
+Rank=2 done Reading 7107837440 bytes from file /datasets/ogbn_papers100M/wgb/paper/node_feat.d/0.bin size=56862697472, starting from offset=14215674880.
+Rank=2 done reading total 7107837440 bytes from needed files.
+Rank=4 done Reading 7107837440 bytes from file /datasets/ogbn_papers100M/wgb/paper/node_feat.d/0.bin size=56862697472, starting from offset=28431349760.
+Rank=4 done reading total 7107837440 bytes from needed files.
+Rank=5 done Reading 7107837440 bytes from file /datasets/ogbn_papers100M/wgb/paper/node_feat.d/0.bin size=56862697472, starting from offset=35539187200.
+Rank=5 done reading total 7107837440 bytes from needed files.
+Rank=7 done Reading 7107835392 bytes from file /datasets/ogbn_papers100M/wgb/paper/node_feat.d/0.bin size=56862697472, starting from offset=49754862080.
+Rank=7 done reading total 7107835392 bytes from needed files.
+Rank=6 done Reading 7107837440 bytes from file /datasets/ogbn_papers100M/wgb/paper/node_feat.d/0.bin size=56862697472, starting from offset=42647024640.
+Rank=6 done reading total 7107837440 bytes from needed files.
+Rank=0 done Reading 7107837440 bytes from file /datasets/ogbn_papers100M/wgb/paper/node_feat.d/0.bin size=56862697472, starting from offset=0.
+Rank=0 done reading total 7107837440 bytes from needed files.
+Rank=3 done Reading 7107837440 bytes from file /datasets/ogbn_papers100M/wgb/paper/node_feat.d/0.bin size=56862697472, starting from offset=21323512320.
+Rank=3 done reading total 7107837440 bytes from needed files.
+Rank=1 done Reading 7107837440 bytes from file /datasets/ogbn_papers100M/wgb/paper/node_feat.d/0.bin size=56862697472, starting from offset=7107837440.
+Rank=1 done reading total 7107837440 bytes from needed files.
+created x wg embedding <pylibwholegraph.torch.embedding.WholeMemoryEmbedding object at 0x14e3a00f9e10>
+created x wg embedding <pylibwholegraph.torch.embedding.WholeMemoryEmbedding object at 0x14cc384d9e70>
+created x wg embedding <pylibwholegraph.torch.embedding.WholeMemoryEmbedding object at 0x14ac3ba49e40>
+created x wg embedding <pylibwholegraph.torch.embedding.WholeMemoryEmbedding object at 0x149c11bc5e40>
+created x wg embedding <pylibwholegraph.torch.embedding.WholeMemoryEmbedding object at 0x1503e0b25ed0>
+created x wg embedding <pylibwholegraph.torch.embedding.WholeMemoryEmbedding object at 0x150841709e70>
+created x wg embedding <pylibwholegraph.torch.embedding.WholeMemoryEmbedding object at 0x148d7f381ed0>
+created x wg embedding <pylibwholegraph.torch.embedding.WholeMemoryEmbedding object at 0x14984dd49ea0>
+done creating model
+INFO:PyGCuGraphTrainer:created trainer
+INFO:bench_cugraph_training:Trainer ready on rank 0
+INFO:PyGTrainer:Entered train loop
+done creating modeldone creating model
+INFO:PyGCuGraphTrainer:created trainer
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, train stage
+INFO:PyGCuGraphTrainer:getting data
+done creating model
+INFO:PyGCuGraphTrainer:created trainer
+INFO:bench_cugraph_training:Trainer ready on rank 7
+INFO:PyGTrainer:Entered train loop
+INFO:bench_cugraph_training:Trainer ready on rank 5
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, train stage
+INFO:PyGTrainer:Entered train loop
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, train stage
+INFO:PyGCuGraphTrainer:getting data
+
+INFO:PyGCuGraphTrainer:created trainer
+INFO:bench_cugraph_training:Trainer ready on rank 1
+INFO:PyGTrainer:Entered train loop
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, train stage
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting data
+done creating modeldone creating model
+INFO:PyGCuGraphTrainer:created trainer
+done creating model
+INFO:PyGCuGraphTrainer:created trainer
+INFO:bench_cugraph_training:Trainer ready on rank 4
+
+INFO:PyGCuGraphTrainer:created trainer
+INFO:PyGTrainer:Entered train loop
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, train stage
+INFO:bench_cugraph_training:Trainer ready on rank 3
+INFO:PyGTrainer:Entered train loop
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, train stage
+INFO:PyGCuGraphTrainer:getting data
+INFO:bench_cugraph_training:Trainer ready on rank 2
+INFO:PyGTrainer:Entered train loop
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, train stage
+INFO:PyGCuGraphTrainer:getting data
+done creating model
+INFO:PyGCuGraphTrainer:created trainer
+INFO:bench_cugraph_training:Trainer ready on rank 6
+INFO:PyGTrainer:Entered train loop
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, train stage
+INFO:PyGCuGraphTrainer:getting data
+/opt/conda/lib/python3.10/site-packages/cugraph_pyg/data/cugraph_store.py:340: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  if torch.has_cuda:
+/opt/conda/lib/python3.10/site-packages/cugraph_pyg/data/cugraph_store.py:340: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  if torch.has_cuda:
+INFO:PyGCuGraphTrainer:got data successfully on rank 4
+INFO:PyGCuGraphTrainer:got data successfully on rank 5
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 4
+/opt/conda/lib/python3.10/site-packages/cugraph_pyg/data/cugraph_store.py:340: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  if torch.has_cuda:
+/opt/conda/lib/python3.10/site-packages/cugraph_pyg/data/cugraph_store.py:340: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  if torch.has_cuda:
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 5
+INFO:PyGCuGraphTrainer:got data successfully on rank 6
+INFO:PyGCuGraphTrainer:got data successfully on rank 3
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 3
+INFO:PyGCuGraphTrainer:got data successfully on rank 6
+/opt/conda/lib/python3.10/site-packages/cugraph_pyg/data/cugraph_store.py:340: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  if torch.has_cuda:
+/opt/conda/lib/python3.10/site-packages/cugraph_pyg/data/cugraph_store.py:340: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  if torch.has_cuda:
+/opt/conda/lib/python3.10/site-packages/cugraph_pyg/data/cugraph_store.py:340: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  if torch.has_cuda:
+INFO:PyGCuGraphTrainer:got data successfully on rank 7
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 7
+/opt/conda/lib/python3.10/site-packages/cugraph_pyg/data/cugraph_store.py:340: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  if torch.has_cuda:
+INFO:PyGCuGraphTrainer:got data successfully on rank 2
+INFO:PyGCuGraphTrainer:got loader successfully on rank 3
+INFO:PyGCuGraphTrainer:got loader successfully on rank 4
+INFO:PyGCuGraphTrainer:got loader successfully on rank 5
+INFO:PyGCuGraphTrainer:got loader successfully on rank 6
+INFO:PyGCuGraphTrainer:got loader successfully on rank 7
+INFO:PyGCuGraphTrainer:got data successfully on rank 0
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 1
+INFO:PyGCuGraphTrainer:got data successfully on rank 2
+INFO:PyGCuGraphTrainer:got data successfully on rank 0
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 1
+INFO:PyGCuGraphTrainer:got loader successfully on rank 2
+INFO:PyGCuGraphTrainer:got loader successfully on rank 1
+INFO:PyGCuGraphTrainer:got loader successfully on rank 0
+INFO:numba.cuda.cudadrv.driver:init
+INFO:numba.cuda.cudadrv.driver:init
+INFO:numba.cuda.cudadrv.driver:init
+INFO:numba.cuda.cudadrv.driver:init
+INFO:numba.cuda.cudadrv.driver:init
+INFO:numba.cuda.cudadrv.driver:init
+INFO:numba.cuda.cudadrv.driver:init
+INFO:numba.cuda.cudadrv.driver:init
+INFO:PyGTrainer:epoch 0, iteration 1
+INFO:PyGTrainer:num sampled nodes: tensor([  467,  3621, 21207, 86099])
+INFO:PyGTrainer:num sampled edges: tensor([  3674,  26271, 140084])
+INFO:PyGTrainer:time forward: 2.182291683740914
+INFO:PyGTrainer:time backward: 0.025084014050662518
+INFO:PyGTrainer:loader time: 0.008101927116513252
+INFO:PyGTrainer:feature transfer time: 0.014437554404139519
+INFO:PyGTrainer:total time: 10.299585593864322
+INFO:PyGTrainer:epoch 0, iteration 1
+INFO:PyGTrainer:num sampled nodes: tensor([   500,   4249,  26420, 124331])
+INFO:PyGTrainer:num sampled edges: tensor([  4353,  31815, 191525])
+INFO:PyGTrainer:time forward: 3.015144937671721
+INFO:PyGTrainer:time backward: 0.13135603722184896
+INFO:PyGTrainer:loader time: 0.015199530869722366
+INFO:PyGTrainer:feature transfer time: 0.012112325057387352
+INFO:PyGTrainer:epoch 0, iteration 1
+INFO:PyGTrainer:total time: 10.319303919561207
+INFO:PyGTrainer:epoch 0, iteration 1
+INFO:PyGTrainer:epoch 0, iteration 1
+INFO:PyGTrainer:num sampled nodes: tensor([  429,  3572, 17450, 63498])
+INFO:PyGTrainer:num sampled edges: tensor([ 3619, 20894, 98562])
+INFO:PyGTrainer:time forward: 3.1948451912030578
+INFO:PyGTrainer:num sampled nodes: tensor([  421,  3110, 16270, 67026])
+INFO:PyGTrainer:num sampled nodes: tensor([  456,  3997, 20482, 74410])
+INFO:PyGTrainer:time backward: 0.025509096682071686
+INFO:PyGTrainer:loader time: 0.02688661590218544
+INFO:PyGTrainer:feature transfer time: 0.0134426886215806
+INFO:PyGTrainer:num sampled edges: tensor([  4059,  25154, 120410])
+INFO:PyGTrainer:time forward: 3.2471174839884043
+INFO:PyGTrainer:num sampled edges: tensor([  3148,  19404, 100360])
+INFO:PyGTrainer:time forward: 2.5551708061248064
+INFO:PyGTrainer:time backward: 0.10490197036415339
+INFO:PyGTrainer:loader time: 0.033208711072802544
+INFO:PyGTrainer:total time: 10.3224742943421
+INFO:PyGTrainer:time backward: 0.19817587919533253
+INFO:PyGTrainer:loader time: 0.03039957396686077
+INFO:PyGTrainer:feature transfer time: 0.011506744660437107
+INFO:PyGTrainer:total time: 10.306275960057974
+INFO:PyGTrainer:feature transfer time: 0.011768163181841373
+INFO:PyGTrainer:total time: 10.312607240863144
+INFO:PyGTrainer:epoch 0, iteration 1
+INFO:PyGTrainer:num sampled nodes: tensor([  429,  2949, 15644, 64409])
+INFO:PyGTrainer:num sampled edges: tensor([ 2979, 18508, 95115])
+INFO:PyGTrainer:epoch 0, iteration 1
+INFO:PyGTrainer:time forward: 3.3445230182260275
+INFO:PyGTrainer:time backward: 0.1726101776584983
+INFO:PyGTrainer:loader time: 0.05895692855119705
+INFO:PyGTrainer:feature transfer time: 0.010746760293841362
+INFO:PyGTrainer:total time: 10.335085197351873
+INFO:PyGTrainer:num sampled nodes: tensor([   463,   4094,  26167, 121113])
+INFO:PyGTrainer:num sampled edges: tensor([  4154,  30852, 182109])
+INFO:PyGTrainer:time forward: 1.7705870838835835
+INFO:PyGTrainer:time backward: 0.1325830677524209
+INFO:PyGTrainer:loader time: 0.06467681378126144
+INFO:PyGTrainer:feature transfer time: 0.019422385841608047
+INFO:PyGTrainer:total time: 10.337512247264385
+INFO:PyGTrainer:epoch 0, iteration 1
+INFO:PyGTrainer:num sampled nodes: tensor([   442,   3903,  24506, 108401])
+INFO:PyGTrainer:num sampled edges: tensor([  3934,  28740, 163965])
+INFO:PyGTrainer:time forward: 2.4744031000882387
+INFO:PyGTrainer:time backward: 0.10416070837527514
+INFO:PyGTrainer:loader time: 0.08149567060172558
+INFO:PyGTrainer:feature transfer time: 0.0151529461145401
+INFO:PyGTrainer:total time: 10.345009168609977
+INFO:PyGTrainer:epoch 0, iteration 21
+INFO:PyGTrainer:epoch 0, iteration 21
+INFO:PyGTrainer:num sampled nodes: tensor([  419,  2951, 15582, 62602])
+INFO:PyGTrainer:num sampled edges: tensor([ 2981, 18608, 93145])
+INFO:PyGTrainer:num sampled nodes: tensor([  425,  2987, 15456, 62230])
+INFO:PyGTrainer:time forward: 0.25516601728106086
+INFO:PyGTrainer:num sampled edges: tensor([ 3014, 18479, 93809])
+INFO:PyGTrainer:time backward: 0.04351829703558575
+INFO:PyGTrainer:epoch 0, iteration 21
+INFO:PyGTrainer:loader time: 0.02878480963408947
+INFO:PyGTrainer:feature transfer time: 0.012317684055729345
+INFO:PyGTrainer:epoch 0, iteration 21
+INFO:PyGTrainer:total time: 1.224948577074842
+INFO:PyGTrainer:time forward: 0.3261979990215464
+INFO:PyGTrainer:time backward: 0.0533638470382853
+INFO:PyGTrainer:epoch 0, iteration 21
+INFO:PyGTrainer:num sampled nodes: tensor([   442,   3767,  24204, 109462])
+INFO:PyGTrainer:loader time: 0.03027530014514923
+INFO:PyGTrainer:num sampled nodes: tensor([  454,  3849, 19508, 71850])
+INFO:PyGTrainer:feature transfer time: 0.01327841364863244
+INFO:PyGTrainer:total time: 1.2258845557543365
+INFO:PyGTrainer:epoch 0, iteration 21
+INFO:PyGTrainer:num sampled nodes: tensor([  436,  3693, 18820, 66448])
+INFO:PyGTrainer:num sampled edges: tensor([  3927,  23849, 115544])
+INFO:PyGTrainer:num sampled nodes: tensor([  313,  2782, 17515, 84195])
+INFO:PyGTrainer:num sampled edges: tensor([  2813,  20114, 120148])
+INFO:PyGTrainer:time forward: 0.18605040513317694
+INFO:PyGTrainer:time backward: 0.03588871607048945
+INFO:PyGTrainer:loader time: 0.02869652770459652
+INFO:PyGTrainer:feature transfer time: 0.017397662963379513
+INFO:PyGTrainer:total time: 1.2259114377877929
+INFO:PyGTrainer:num sampled edges: tensor([  3803,  28204, 162945])
+INFO:PyGTrainer:time forward: 0.2442453367296945
+INFO:PyGTrainer:time backward: 0.05123061966150999
+INFO:PyGTrainer:loader time: 0.028343215584754944
+INFO:PyGTrainer:feature transfer time: 0.014889341525056145
+INFO:PyGTrainer:total time: 1.225130465304987
+INFO:PyGTrainer:time forward: 0.3128273371945728
+INFO:PyGTrainer:num sampled edges: tensor([  3767,  22994, 107006])
+INFO:PyGTrainer:time forward: 0.31935682096941903
+INFO:PyGTrainer:time backward: 0.049791560592976486
+INFO:PyGTrainer:loader time: 0.028429051861166954
+INFO:PyGTrainer:feature transfer time: 0.013256964273750782
+INFO:PyGTrainer:total time: 1.224805080331862
+INFO:PyGTrainer:time backward: 0.04403752816671675
+INFO:PyGTrainer:loader time: 0.028485190123319626
+INFO:PyGTrainer:epoch 0, iteration 21
+INFO:PyGTrainer:feature transfer time: 0.01287037701430646
+INFO:PyGTrainer:num sampled nodes: tensor([   477,   3787,  23310, 103978])
+INFO:PyGTrainer:total time: 1.226187357255681
+INFO:PyGTrainer:num sampled edges: tensor([  3836,  27941, 160331])
+INFO:PyGTrainer:time forward: 0.2227405241944573
+INFO:PyGTrainer:time backward: 0.04006445611065084
+INFO:PyGTrainer:loader time: 0.03197203017771244
+INFO:PyGTrainer:feature transfer time: 0.016194003464823418
+INFO:PyGTrainer:total time: 1.2254556607116351
+INFO:PyGTrainer:epoch 0, iteration 21
+INFO:PyGTrainer:num sampled nodes: tensor([   502,   4191,  26280, 125939])
+INFO:PyGTrainer:num sampled edges: tensor([  4301,  31263, 190957])
+INFO:PyGTrainer:time forward: 0.29895368472419004
+INFO:PyGTrainer:time backward: 0.03562948818911205
+INFO:PyGTrainer:loader time: 0.028776362538337708
+INFO:PyGTrainer:feature transfer time: 0.017686925913122566
+INFO:PyGTrainer:total time: 1.2265078505839815
+INFO:PyGTrainer:epoch 0, iteration 41
+INFO:PyGTrainer:epoch 0, iteration 41
+INFO:PyGTrainer:num sampled nodes: tensor([   488,   3908,  23577, 106879])
+INFO:PyGTrainer:num sampled nodes: tensor([  427,  2802, 13711, 51414])
+INFO:PyGTrainer:num sampled edges: tensor([  3951,  27914, 160999])
+INFO:PyGTrainer:time forward: 0.1259020311935317
+INFO:PyGTrainer:num sampled edges: tensor([ 2855, 16823, 79947])
+INFO:PyGTrainer:time backward: 0.04452992842665741
+INFO:PyGTrainer:loader time: 0.020881375297904015
+INFO:PyGTrainer:feature transfer time: 0.015524624891224362
+INFO:PyGTrainer:time forward: 0.14276509607831636
+INFO:PyGTrainer:total time: 0.7875524233317092
+INFO:PyGTrainer:time backward: 0.04634953986498572
+INFO:PyGTrainer:loader time: 0.020872041583061218
+INFO:PyGTrainer:epoch 0, iteration 41
+INFO:PyGTrainer:feature transfer time: 0.012010475132791769
+INFO:PyGTrainer:total time: 0.7875620301458097
+INFO:PyGTrainer:num sampled nodes: tensor([   443,   3753,  23528, 106618])
+INFO:PyGTrainer:num sampled edges: tensor([  3788,  27464, 159495])
+INFO:PyGTrainer:epoch 0, iteration 41
+INFO:PyGTrainer:num sampled nodes: tensor([  4,  40, 181, 645])
+INFO:PyGTrainer:time forward: 0.13867277359323843
+INFO:PyGTrainer:time backward: 0.03830486571504956
+INFO:PyGTrainer:loader time: 0.024755826219916344
+INFO:PyGTrainer:feature transfer time: 0.015188123010808513
+INFO:PyGTrainer:epoch 0, iteration 41
+INFO:PyGTrainer:total time: 0.7876237234366792
+INFO:PyGTrainer:num sampled edges: tensor([ 40, 208, 826])
+INFO:PyGTrainer:time forward: 0.17691796942658367
+INFO:PyGTrainer:time backward: 0.04488373831624076
+INFO:PyGTrainer:loader time: 0.030941041186451912
+INFO:PyGTrainer:feature transfer time: 0.012907165856588455
+INFO:PyGTrainer:total time: 0.7874472785652393
+INFO:PyGTrainer:num sampled nodes: tensor([  427,  3061, 16267, 65576])
+INFO:PyGTrainer:num sampled edges: tensor([ 3102, 19524, 97867])
+INFO:PyGTrainer:time forward: 0.1805611327290535
+INFO:PyGTrainer:epoch 0, iteration 41
+INFO:PyGTrainer:num sampled nodes: tensor([   501,   4262,  26492, 126352])
+INFO:PyGTrainer:time backward: 0.04429691834818749
+INFO:PyGTrainer:loader time: 0.03191136568784714
+INFO:PyGTrainer:feature transfer time: 0.013147900413189615
+INFO:PyGTrainer:total time: 0.7882625423815279
+INFO:PyGTrainer:num sampled edges: tensor([  4357,  31442, 190372])
+INFO:PyGTrainer:time forward: 0.16556354638721263
+INFO:PyGTrainer:time backward: 0.0384282608560863
+INFO:PyGTrainer:loader time: 0.03567834012210369
+INFO:PyGTrainer:feature transfer time: 0.016888097017293886
+INFO:PyGTrainer:total time: 0.7883599765953564
+INFO:PyGTrainer:epoch 0, iteration 41
+INFO:PyGTrainer:num sampled nodes: tensor([  450,  3857, 20058, 73038])
+INFO:PyGTrainer:epoch 0, iteration 41
+INFO:PyGTrainer:num sampled edges: tensor([  3921,  24287, 117306])
+INFO:PyGTrainer:time forward: 0.17333273119514897
+INFO:PyGTrainer:time backward: 0.04378794670282375
+INFO:PyGTrainer:loader time: 0.03199828043580055
+INFO:PyGTrainer:feature transfer time: 0.01317575347742864
+INFO:PyGTrainer:total time: 0.7885947373828718
+INFO:PyGTrainer:num sampled nodes: tensor([   489,   4186,  25993, 121107])
+INFO:PyGTrainer:num sampled edges: tensor([  4247,  30884, 182216])
+INFO:PyGTrainer:time forward: 0.10815162224961179
+INFO:PyGTrainer:time backward: 0.03398886735418013
+INFO:PyGTrainer:loader time: 0.03301337733864784
+INFO:PyGTrainer:feature transfer time: 0.017117315681562537
+INFO:PyGTrainer:total time: 0.7885298838927632
+INFO:PyGTrainer:epoch 0, iteration 61
+INFO:PyGTrainer:num sampled nodes: tensor([   482,   3851,  23225, 102322])
+INFO:PyGTrainer:epoch 0, iteration 61
+INFO:PyGTrainer:num sampled nodes: tensor([  445,  3855, 19540, 70934])
+INFO:PyGTrainer:epoch 0, iteration 61
+INFO:PyGTrainer:num sampled edges: tensor([  3920,  23622, 112227])
+INFO:PyGTrainer:num sampled edges: tensor([  3912,  27745, 159948])
+INFO:PyGTrainer:time forward: 0.09218657383274648
+INFO:PyGTrainer:num sampled nodes: tensor([   449,   4056,  26200, 119778])
+INFO:PyGTrainer:time forward: 0.12363200935144578
+INFO:PyGTrainer:time backward: 0.04574356982184033
+INFO:PyGTrainer:time backward: 0.04097856752454273
+INFO:PyGTrainer:loader time: 0.024816619232296944
+INFO:PyGTrainer:epoch 0, iteration 61
+INFO:PyGTrainer:loader time: 0.023706328123807907
+INFO:PyGTrainer:num sampled nodes: tensor([  418,  3020, 16299, 68581])
+INFO:PyGTrainer:num sampled edges: tensor([  4091,  30806, 181121])
+INFO:PyGTrainer:feature transfer time: 0.013193016270956686
+INFO:PyGTrainer:total time: 0.6337579657894469
+INFO:PyGTrainer:feature transfer time: 0.01550363190472126
+INFO:PyGTrainer:total time: 0.6334004604648198
+INFO:PyGTrainer:epoch 0, iteration 61
+INFO:PyGTrainer:num sampled nodes: tensor([  429,  3591, 18169, 65310])
+INFO:PyGTrainer:time forward: 0.10052906190075221
+INFO:PyGTrainer:num sampled edges: tensor([ 3050, 19272, 99945])
+INFO:PyGTrainer:time forward: 0.12871944666990348
+INFO:PyGTrainer:time backward: 0.042846960556362904
+INFO:PyGTrainer:loader time: 0.03540208376944065
+INFO:PyGTrainer:feature transfer time: 0.013958710245788097
+INFO:PyGTrainer:total time: 0.6338246671422836
+INFO:PyGTrainer:time backward: 0.03882798967101882
+INFO:PyGTrainer:epoch 0, iteration 61
+INFO:PyGTrainer:loader time: 0.02138456702232361
+INFO:PyGTrainer:num sampled edges: tensor([  3652,  21904, 104388])
+INFO:PyGTrainer:time forward: 0.12640730036242354
+INFO:PyGTrainer:time backward: 0.044017888124912016
+INFO:PyGTrainer:loader time: 0.034597404301166534
+INFO:PyGTrainer:feature transfer time: 0.013135334146359274
+INFO:PyGTrainer:total time: 0.6333761483791375
+INFO:PyGTrainer:feature transfer time: 0.01568039506673813
+INFO:PyGTrainer:total time: 0.6334032246001786
+INFO:PyGTrainer:num sampled nodes: tensor([   499,   4109,  25001, 119733])
+INFO:PyGTrainer:num sampled edges: tensor([  4214,  29975, 179866])
+INFO:PyGTrainer:time forward: 0.11871188704765612
+INFO:PyGTrainer:time backward: 0.03965206498340253
+INFO:PyGTrainer:loader time: 0.03358660079538822
+INFO:PyGTrainer:feature transfer time: 0.01725544555172805
+INFO:PyGTrainer:total time: 0.6339043870327934
+INFO:PyGTrainer:epoch 0, iteration 61
+INFO:PyGTrainer:epoch 0, iteration 61
+INFO:PyGTrainer:num sampled nodes: tensor([  445,  2872, 14473, 57174])
+INFO:PyGTrainer:num sampled edges: tensor([ 2932, 17372, 86969])
+INFO:PyGTrainer:time forward: 0.10257148237959031
+INFO:PyGTrainer:time backward: 0.04702566503997772
+INFO:PyGTrainer:loader time: 0.040379473939538
+INFO:PyGTrainer:feature transfer time: 0.012469587126566518
+INFO:PyGTrainer:total time: 0.6336873910059372
+INFO:PyGTrainer:num sampled nodes: tensor([   483,   4042,  25226, 115401])
+INFO:PyGTrainer:num sampled edges: tensor([  4119,  30114, 176731])
+INFO:PyGTrainer:time forward: 0.07967922575170955
+INFO:PyGTrainer:time backward: 0.03612482376516827
+INFO:PyGTrainer:loader time: 0.03888055682182312
+INFO:PyGTrainer:feature transfer time: 0.017096123117352684
+INFO:PyGTrainer:total time: 0.6339246295092087
+INFO:PyGTrainer:epoch 0, iteration 81
+INFO:PyGTrainer:num sampled nodes: tensor([  442,  3838, 19375, 70078])
+INFO:PyGTrainer:num sampled edges: tensor([  3908,  23414, 112853])
+INFO:PyGTrainer:epoch 0, iteration 81
+INFO:PyGTrainer:epoch 0, iteration 81
+INFO:PyGTrainer:time forward: 0.09844657594746933
+INFO:PyGTrainer:time backward: 0.08655968217588053
+INFO:PyGTrainer:num sampled nodes: tensor([   482,   3837,  23133, 102703])
+INFO:PyGTrainer:loader time: 0.023470686748623848
+INFO:PyGTrainer:num sampled nodes: tensor([   455,   4035,  25586, 116494])
+INFO:PyGTrainer:feature transfer time: 0.013166277555794251
+INFO:PyGTrainer:total time: 0.5963250836584626
+INFO:PyGTrainer:num sampled edges: tensor([  4084,  30144, 177068])
+INFO:PyGTrainer:num sampled edges: tensor([  3886,  27971, 158550])
+INFO:PyGTrainer:time forward: 0.08130715103683675
+INFO:PyGTrainer:time backward: 0.07978244452941709
+INFO:PyGTrainer:loader time: 0.0248199962079525
+INFO:PyGTrainer:feature transfer time: 0.015559058795433218
+INFO:PyGTrainer:time forward: 0.07454723315086306
+INFO:PyGTrainer:time backward: 0.0807211548317133
+INFO:PyGTrainer:total time: 0.5960579634666806
+INFO:PyGTrainer:loader time: 0.02443038672208786
+INFO:PyGTrainer:feature transfer time: 0.015418196687611138
+INFO:PyGTrainer:total time: 0.5961023488695302
+INFO:PyGTrainer:epoch 0, iteration 81
+INFO:PyGTrainer:epoch 0, iteration 81
+INFO:PyGTrainer:epoch 0, iteration 81
+INFO:PyGTrainer:num sampled nodes: tensor([  441,  2905, 14412, 56415])
+INFO:PyGTrainer:num sampled edges: tensor([ 2946, 17397, 85041])
+INFO:PyGTrainer:time forward: 0.08202596145068727
+INFO:PyGTrainer:epoch 0, iteration 81
+INFO:PyGTrainer:epoch 0, iteration 81
+INFO:PyGTrainer:num sampled nodes: tensor([  424,  3015, 15832, 65119])
+INFO:PyGTrainer:num sampled nodes: tensor([  440,  3504, 19139, 77062])
+INFO:PyGTrainer:num sampled nodes: tensor([   487,   4095,  24861, 113275])
+INFO:PyGTrainer:num sampled edges: tensor([  3554,  22852, 119549])
+INFO:PyGTrainer:time forward: 0.095613504351094
+INFO:PyGTrainer:time backward: 0.03863375981497329
+INFO:PyGTrainer:loader time: 0.03573719225823879
+INFO:PyGTrainer:feature transfer time: 0.016771669181563507
+INFO:PyGTrainer:total time: 0.5964828077249411
+INFO:PyGTrainer:time backward: 0.08609752859011656
+INFO:PyGTrainer:loader time: 0.03490309603512287
+INFO:PyGTrainer:feature transfer time: 0.01224767200921367
+INFO:PyGTrainer:total time: 0.5962499723338136
+INFO:PyGTrainer:num sampled nodes: tensor([  438,  3666, 18342, 68161])
+INFO:PyGTrainer:num sampled edges: tensor([ 3055, 18971, 97013])
+INFO:PyGTrainer:time forward: 0.10224491223783755
+INFO:PyGTrainer:time backward: 0.08155206940704729
+INFO:PyGTrainer:loader time: 0.036359814926981926
+INFO:PyGTrainer:feature transfer time: 0.013772314755109752
+INFO:PyGTrainer:total time: 0.5965138023219457
+INFO:PyGTrainer:num sampled edges: tensor([  4156,  29845, 171931])
+INFO:PyGTrainer:time forward: 0.06559317552189274
+INFO:PyGTrainer:num sampled edges: tensor([  3733,  22046, 106904])
+INFO:PyGTrainer:time backward: 0.07478764246604065
+INFO:PyGTrainer:time forward: 0.10053878086732655
+INFO:PyGTrainer:time backward: 0.08297914505095744
+INFO:PyGTrainer:loader time: 0.03738054260611534
+INFO:PyGTrainer:feature transfer time: 0.013108698810200865
+INFO:PyGTrainer:total time: 0.5961384417988905
+INFO:PyGTrainer:loader time: 0.03436736389994621
+INFO:PyGTrainer:feature transfer time: 0.016673489791772713
+INFO:PyGTrainer:total time: 0.5964332489841958
+INFO:PyGTrainer:epoch 0, iteration 101
+INFO:PyGTrainer:num sampled nodes: tensor([  450,  3947, 19926, 71609])
+INFO:PyGTrainer:num sampled edges: tensor([  3998,  24318, 114140])
+INFO:PyGTrainer:epoch 0, iteration 101
+INFO:PyGTrainer:time forward: 0.08509382611031041
+INFO:PyGTrainer:time backward: 0.10631485736253214
+INFO:PyGTrainer:loader time: 0.02557554468512535
+INFO:PyGTrainer:feature transfer time: 0.013037196506618285
+INFO:PyGTrainer:total time: 0.5969653939097828
+INFO:PyGTrainer:epoch 0, iteration 101
+INFO:PyGTrainer:num sampled nodes: tensor([  443,  3588, 18813, 71890])
+INFO:PyGTrainer:num sampled nodes: tensor([   456,   4014,  25755, 119815])
+INFO:PyGTrainer:num sampled edges: tensor([  3638,  22424, 109250])
+INFO:PyGTrainer:num sampled edges: tensor([  4057,  29803, 176583])
+INFO:PyGTrainer:epoch 0, iteration 101
+INFO:PyGTrainer:time forward: 0.08074493156563417
+INFO:PyGTrainer:time backward: 0.09484858319674637
+INFO:PyGTrainer:loader time: 0.026286980137228966
+INFO:PyGTrainer:time forward: 0.07005400860718652
+INFO:PyGTrainer:feature transfer time: 0.015815260619217276
+INFO:PyGTrainer:epoch 0, iteration 101
+INFO:PyGTrainer:total time: 0.5973153940639367
+INFO:PyGTrainer:time backward: 0.10402183307736527
+INFO:PyGTrainer:loader time: 0.026272015646100044
+INFO:PyGTrainer:feature transfer time: 0.01580463945135182
+INFO:PyGTrainer:num sampled nodes: tensor([  430,  3612, 22025, 95875])
+INFO:PyGTrainer:epoch 0, iteration 101
+INFO:PyGTrainer:num sampled edges: tensor([  3648,  25767, 142536])
+INFO:PyGTrainer:num sampled nodes: tensor([  475,  4044, 21759, 86427])
+INFO:PyGTrainer:total time: 0.597108085256289
+INFO:PyGTrainer:num sampled edges: tensor([  4107,  25590, 132323])
+INFO:PyGTrainer:num sampled nodes: tensor([  457,  3948, 20155, 74382])
+INFO:PyGTrainer:time forward: 0.0863125450616958
+INFO:PyGTrainer:time backward: 0.10577308985532499
+INFO:PyGTrainer:epoch 0, iteration 101
+INFO:PyGTrainer:loader time: 0.03002169542014599
+INFO:PyGTrainer:epoch 0, iteration 101
+INFO:PyGTrainer:time forward: 0.06993819908330254
+INFO:PyGTrainer:time backward: 0.1115833549924633
+INFO:PyGTrainer:loader time: 0.033647798001766205
+INFO:PyGTrainer:feature transfer time: 0.012146825153453677
+INFO:PyGTrainer:num sampled edges: tensor([  4023,  24194, 117154])
+INFO:PyGTrainer:time forward: 0.08333942135248114
+INFO:PyGTrainer:time backward: 0.11346324703053516
+INFO:PyGTrainer:loader time: 0.03146656975150108
+INFO:PyGTrainer:feature transfer time: 0.013340827223716998
+INFO:PyGTrainer:feature transfer time: 0.013764745117548634
+INFO:PyGTrainer:num sampled nodes: tensor([   483,   4173,  25204, 114530])
+INFO:PyGTrainer:total time: 0.5971836778243967
+INFO:PyGTrainer:total time: 0.5973537236671237
+INFO:PyGTrainer:num sampled nodes: tensor([   479,   3871,  23744, 103893])
+INFO:PyGTrainer:total time: 0.5974063001134816
+INFO:PyGTrainer:num sampled edges: tensor([  4235,  30061, 174958])
+INFO:PyGTrainer:time forward: 0.0570406820807679
+INFO:PyGTrainer:num sampled edges: tensor([  3928,  28943, 163976])
+INFO:PyGTrainer:time forward: 0.06470796120736529
+INFO:PyGTrainer:time backward: 0.09175734974297822
+INFO:PyGTrainer:loader time: 0.031485678628087044
+INFO:PyGTrainer:time backward: 0.1029951332648303
+INFO:PyGTrainer:loader time: 0.03070398047566414
+INFO:PyGTrainer:feature transfer time: 0.016812204255485068
+INFO:PyGTrainer:total time: 0.5973785839901835
+INFO:PyGTrainer:feature transfer time: 0.01543955784291029
+INFO:PyGTrainer:total time: 0.5972142534914846
+INFO:PyGTrainer:epoch 0, iteration 121
+INFO:PyGTrainer:epoch 0, iteration 121
+INFO:PyGTrainer:num sampled nodes: tensor([  478,  4065, 21813, 83348])
+INFO:PyGTrainer:epoch 0, iteration 121
+INFO:PyGTrainer:num sampled nodes: tensor([  438,  3432, 18523, 73196])
+INFO:PyGTrainer:num sampled edges: tensor([  4122,  26234, 130410])
+INFO:PyGTrainer:num sampled edges: tensor([  3475,  22073, 111279])
+INFO:PyGTrainer:time forward: 0.062183930874481555
+INFO:PyGTrainer:num sampled nodes: tensor([   482,   4110,  25644, 115989])
+INFO:PyGTrainer:time forward: 0.07091389961357487
+INFO:PyGTrainer:time backward: 0.08639372185971893
+INFO:PyGTrainer:time backward: 0.10110075838985991
+INFO:PyGTrainer:loader time: 0.0222367811948061
+INFO:PyGTrainer:loader time: 0.018915468826889992
+INFO:PyGTrainer:feature transfer time: 0.01536874917381611
+INFO:PyGTrainer:feature transfer time: 0.012493997797003536
+INFO:PyGTrainer:total time: 0.5489062310394938
+INFO:PyGTrainer:total time: 0.5490591434120643
+INFO:PyGTrainer:num sampled edges: tensor([  4185,  30687, 180358])
+INFO:PyGTrainer:time forward: 0.05099107289961616
+INFO:PyGTrainer:time backward: 0.0942683519612326
+INFO:PyGTrainer:loader time: 0.02165500819683075
+INFO:PyGTrainer:feature transfer time: 0.01658067865999507
+INFO:PyGTrainer:total time: 0.5490566900030511
+INFO:PyGTrainer:epoch 0, iteration 121
+INFO:PyGTrainer:num sampled nodes: tensor([   460,   4075,  26494, 124180])
+INFO:PyGTrainer:num sampled edges: tensor([  4121,  30783, 183526])
+INFO:PyGTrainer:time forward: 0.06236616522073746
+INFO:PyGTrainer:time backward: 0.09298517718361538
+INFO:PyGTrainer:epoch 0, iteration 121
+INFO:PyGTrainer:loader time: 0.03356083296239376
+INFO:PyGTrainer:feature transfer time: 0.016131898266125898
+INFO:PyGTrainer:total time: 0.5490045739398872
+INFO:PyGTrainer:epoch 0, iteration 121
+INFO:PyGTrainer:num sampled nodes: tensor([  443,  3856, 20110, 73352])
+INFO:PyGTrainer:num sampled edges: tensor([  3919,  24557, 118439])
+INFO:PyGTrainer:time forward: 0.07315712782447456
+INFO:PyGTrainer:time backward: 0.10249684447208877
+INFO:PyGTrainer:epoch 0, iteration 121
+INFO:PyGTrainer:loader time: 0.03579794429242611
+INFO:PyGTrainer:feature transfer time: 0.013353603434000836
+INFO:PyGTrainer:total time: 0.5492502907749082
+INFO:PyGTrainer:num sampled nodes: tensor([  442,  3657, 21201, 88791])
+INFO:PyGTrainer:num sampled nodes: tensor([  432,  3699, 18665, 66755])
+INFO:PyGTrainer:num sampled edges: tensor([  3769,  22717, 107123])
+INFO:PyGTrainer:time forward: 0.07495998588131099
+INFO:PyGTrainer:time backward: 0.0945243011457754
+INFO:PyGTrainer:loader time: 0.040531476959586143
+INFO:PyGTrainer:feature transfer time: 0.013039637311193788
+INFO:PyGTrainer:num sampled edges: tensor([  3692,  24962, 133586])
+INFO:PyGTrainer:time forward: 0.07520332059166471
+INFO:PyGTrainer:time backward: 0.09627371073746291
+INFO:PyGTrainer:loader time: 0.03641859255731106
+INFO:PyGTrainer:feature transfer time: 0.014067234761524395
+INFO:PyGTrainer:total time: 0.5492410311841818
+INFO:PyGTrainer:total time: 0.5490098781883717
+INFO:PyGTrainer:epoch 0, iteration 121
+INFO:PyGTrainer:num sampled nodes: tensor([   488,   3971,  24693, 112110])
+INFO:PyGTrainer:num sampled edges: tensor([  4038,  29486, 171149])
+INFO:PyGTrainer:time forward: 0.05814026404538604
+INFO:PyGTrainer:time backward: 0.08775299469955632
+INFO:PyGTrainer:loader time: 0.03358682803809643
+INFO:PyGTrainer:feature transfer time: 0.015681457461514434
+INFO:PyGTrainer:total time: 0.5491410775537617
+INFO:PyGTrainer:epoch 0, iteration 141
+INFO:PyGTrainer:num sampled nodes: tensor([  458,  3986, 21124, 80056])
+INFO:PyGTrainer:epoch 0, iteration 141
+INFO:PyGTrainer:num sampled edges: tensor([  4046,  25125, 124199])
+INFO:PyGTrainer:num sampled nodes: tensor([  442,  3614, 19624, 76683])
+INFO:PyGTrainer:time forward: 0.056547734860173414
+INFO:PyGTrainer:time backward: 0.09544592182820952
+INFO:PyGTrainer:loader time: 0.02773398905992508
+INFO:PyGTrainer:feature transfer time: 0.012848759227445428
+INFO:PyGTrainer:num sampled edges: tensor([  3657,  23148, 117197])
+INFO:PyGTrainer:total time: 0.5145014445231834
+INFO:PyGTrainer:epoch 0, iteration 141
+INFO:PyGTrainer:num sampled nodes: tensor([  427,  3669, 18986, 69725])
+INFO:PyGTrainer:time forward: 0.06385525191386401
+INFO:PyGTrainer:time backward: 0.08025701635215483
+INFO:PyGTrainer:loader time: 0.031057564541697502
+INFO:PyGTrainer:feature transfer time: 0.01519105613598941
+INFO:PyGTrainer:epoch 0, iteration 141
+INFO:PyGTrainer:total time: 0.5146558267575964
+INFO:PyGTrainer:num sampled nodes: tensor([   503,   4351,  26840, 128250])
+INFO:PyGTrainer:epoch 0, iteration 141
+INFO:PyGTrainer:num sampled edges: tensor([  3739,  23085, 111560])
+INFO:PyGTrainer:num sampled nodes: tensor([   450,   3887,  24858, 115365])
+INFO:PyGTrainer:epoch 0, iteration 141
+INFO:PyGTrainer:time forward: 0.06705479117923639
+INFO:PyGTrainer:time backward: 0.08945915952954493
+INFO:PyGTrainer:num sampled edges: tensor([  3962,  29208, 173127])
+INFO:PyGTrainer:time forward: 0.05682111564289096
+INFO:PyGTrainer:time backward: 0.08450087940346607
+INFO:PyGTrainer:loader time: 0.03398542292416096
+INFO:PyGTrainer:feature transfer time: 0.016413205854174957
+INFO:PyGTrainer:total time: 0.5145332023475162
+INFO:PyGTrainer:loader time: 0.02651979587972164
+INFO:PyGTrainer:num sampled edges: tensor([  4443,  32284, 194730])
+INFO:PyGTrainer:time forward: 0.053479576850651016
+INFO:PyGTrainer:time backward: 0.08423116804480972
+INFO:PyGTrainer:loader time: 0.027311760932207108
+INFO:PyGTrainer:feature transfer time: 0.016132727357178505
+INFO:PyGTrainer:total time: 0.5145528945074954
+INFO:PyGTrainer:feature transfer time: 0.013016452527486943
+INFO:PyGTrainer:epoch 0, iteration 141
+INFO:PyGTrainer:total time: 0.5144359695554619
+INFO:PyGTrainer:num sampled nodes: tensor([  430,  3598, 21299, 93281])
+INFO:PyGTrainer:num sampled edges: tensor([  3628,  24911, 138407])
+INFO:PyGTrainer:time forward: 0.06770792737288374
+INFO:PyGTrainer:time backward: 0.08814385657946408
+INFO:PyGTrainer:loader time: 0.033428968861699104
+INFO:PyGTrainer:feature transfer time: 0.014425485840880535
+INFO:PyGTrainer:total time: 0.5147044884670579
+INFO:PyGTrainer:num sampled nodes: tensor([   927,   7970,  39733, 136539])
+INFO:PyGTrainer:num sampled edges: tensor([  8172,  49916, 234770])
+INFO:PyGTrainer:time forward: 0.06598030584274044
+INFO:PyGTrainer:time backward: 0.09382069180391624
+INFO:PyGTrainer:loader time: 0.025409385561943054
+INFO:PyGTrainer:feature transfer time: 0.013590357659883062
+INFO:PyGTrainer:epoch 0, iteration 141
+INFO:PyGTrainer:total time: 0.5147388791796607
+INFO:PyGTrainer:num sampled nodes: tensor([   482,   4074,  24931, 113211])
+INFO:PyGTrainer:num sampled edges: tensor([  4139,  29611, 173078])
+INFO:PyGTrainer:time forward: 0.046846902994832525
+INFO:PyGTrainer:time backward: 0.08677975449081458
+INFO:PyGTrainer:loader time: 0.029522916302084923
+INFO:PyGTrainer:feature transfer time: 0.01660262959891222
+INFO:PyGTrainer:total time: 0.5147326452998628
+INFO:PyGTrainer:epoch 0, iteration 161
+INFO:PyGTrainer:num sampled nodes: tensor([  441,  3584, 18914, 72512])
+INFO:PyGTrainer:num sampled edges: tensor([  3627,  22576, 111508])
+INFO:PyGTrainer:time forward: 0.058860154902953425
+INFO:PyGTrainer:time backward: 0.07608544301057671
+INFO:PyGTrainer:loader time: 0.02023584209382534
+INFO:PyGTrainer:feature transfer time: 0.015237535407513748
+INFO:PyGTrainer:total time: 0.4908240563523622
+INFO:PyGTrainer:epoch 0, iteration 161
+INFO:PyGTrainer:epoch 0, iteration 161
+INFO:PyGTrainer:num sampled nodes: tensor([   503,   4225,  25485, 121303])
+INFO:PyGTrainer:num sampled nodes: tensor([  442,  3707, 22113, 94003])
+INFO:PyGTrainer:num sampled edges: tensor([  4312,  30722, 185136])
+INFO:PyGTrainer:time forward: 0.05006128424249681
+INFO:PyGTrainer:time backward: 0.08328184626858544
+INFO:PyGTrainer:num sampled edges: tensor([  3738,  25864, 141655])
+INFO:PyGTrainer:time forward: 0.06197688107689222
+INFO:PyGTrainer:loader time: 0.02015710435807705
+INFO:PyGTrainer:time backward: 0.08436135745342867
+INFO:PyGTrainer:feature transfer time: 0.016383760240802795
+INFO:PyGTrainer:loader time: 0.02003210410475731
+INFO:PyGTrainer:total time: 0.490767646914371
+INFO:PyGTrainer:feature transfer time: 0.014652174368592692
+INFO:PyGTrainer:total time: 0.49089316223506574
+INFO:PyGTrainer:epoch 0, iteration 161
+INFO:PyGTrainer:epoch 0, iteration 161
+INFO:PyGTrainer:num sampled nodes: tensor([  440,  3688, 18678, 67245])
+INFO:PyGTrainer:num sampled nodes: tensor([  469,  4042, 20861, 78483])
+INFO:PyGTrainer:epoch 0, iteration 161
+INFO:PyGTrainer:num sampled nodes: tensor([  468,  3737, 22142, 90634])
+INFO:PyGTrainer:num sampled edges: tensor([  3757,  22570, 108856])
+INFO:PyGTrainer:time forward: 0.061282078471080755
+INFO:PyGTrainer:time backward: 0.08745779054538336
+INFO:PyGTrainer:loader time: 0.036430712789297104
+INFO:PyGTrainer:feature transfer time: 0.012954238595234023
+INFO:PyGTrainer:total time: 0.49075078687136187
+INFO:PyGTrainer:num sampled edges: tensor([  4105,  25216, 123251])
+INFO:PyGTrainer:time forward: 0.060728517947373564
+INFO:PyGTrainer:time backward: 0.08667601393190799
+INFO:PyGTrainer:loader time: 0.031082279980182648
+INFO:PyGTrainer:feature transfer time: 0.014050315007751371
+INFO:PyGTrainer:total time: 0.49095662881010843
+INFO:PyGTrainer:num sampled edges: tensor([  3783,  27519, 147493])
+INFO:PyGTrainer:time forward: 0.044174020661524045
+INFO:PyGTrainer:time backward: 0.08031891070214318
+INFO:PyGTrainer:loader time: 0.030786624178290367
+INFO:PyGTrainer:feature transfer time: 0.01662546346814912
+INFO:PyGTrainer:total time: 0.4909263422459732
+INFO:PyGTrainer:epoch 0, iteration 161
+INFO:PyGTrainer:num sampled nodes: tensor([  474,  4067, 21185, 80264])
+INFO:PyGTrainer:epoch 0, iteration 161
+INFO:PyGTrainer:num sampled edges: tensor([  4116,  25456, 125252])
+INFO:PyGTrainer:time forward: 0.05238597061669017
+INFO:PyGTrainer:num sampled nodes: tensor([   462,   3988,  25872, 118550])
+INFO:PyGTrainer:time backward: 0.09118587304090645
+INFO:PyGTrainer:loader time: 0.0343619491904974
+INFO:PyGTrainer:feature transfer time: 0.012973314461608728
+INFO:PyGTrainer:total time: 0.4908593666774255
+INFO:PyGTrainer:num sampled edges: tensor([  4039,  30588, 180560])
+INFO:PyGTrainer:time forward: 0.05262822238153514
+INFO:PyGTrainer:time backward: 0.08059435064134038
+INFO:PyGTrainer:loader time: 0.03443915210664272
+INFO:PyGTrainer:feature transfer time: 0.016378705424291116
+INFO:PyGTrainer:total time: 0.490848172341048
+INFO:PyGTrainer:epoch 0, iteration 181
+INFO:PyGTrainer:num sampled nodes: tensor([  460,  3908, 20964, 79981])
+INFO:PyGTrainer:num sampled edges: tensor([  3959,  25212, 125450])
+INFO:PyGTrainer:time forward: 0.05631572420575789
+INFO:PyGTrainer:time backward: 0.09996963287243149
+INFO:PyGTrainer:loader time: 0.025784756988286972
+INFO:PyGTrainer:feature transfer time: 0.013955874245736626
+INFO:PyGTrainer:total time: 0.4909446168547639
+INFO:PyGTrainer:epoch 0, iteration 181
+INFO:PyGTrainer:epoch 0, iteration 181
+INFO:PyGTrainer:num sampled nodes: tensor([  441,  3772, 22189, 94098])
+INFO:PyGTrainer:num sampled nodes: tensor([  454,  3851, 18741, 67203])
+INFO:PyGTrainer:num sampled edges: tensor([  3798,  26337, 143123])
+INFO:PyGTrainer:time forward: 0.05743008203149497
+INFO:PyGTrainer:time backward: 0.09883606790022535
+INFO:PyGTrainer:loader time: 0.03197576478123665
+INFO:PyGTrainer:feature transfer time: 0.014804982222043551
+INFO:PyGTrainer:total time: 0.4909717260992953
+INFO:PyGTrainer:num sampled edges: tensor([  3915,  22906, 107930])
+INFO:PyGTrainer:epoch 0, iteration 181
+INFO:PyGTrainer:time forward: 0.05670034598845702
+INFO:PyGTrainer:epoch 0, iteration 181
+INFO:PyGTrainer:time backward: 0.10295977910141368
+INFO:PyGTrainer:loader time: 0.02841086871922016
+INFO:PyGTrainer:num sampled nodes: tensor([  462,  3468, 19978, 82988])
+INFO:PyGTrainer:feature transfer time: 0.012852391739795497
+INFO:PyGTrainer:total time: 0.4907997029598106
+INFO:PyGTrainer:num sampled edges: tensor([  3514,  24656, 132917])
+INFO:PyGTrainer:num sampled nodes: tensor([  432,  3676, 18839, 70036])
+INFO:PyGTrainer:epoch 0, iteration 181
+INFO:PyGTrainer:time forward: 0.04171429007508597
+INFO:PyGTrainer:num sampled nodes: tensor([  444,  3766, 22221, 94944])
+INFO:PyGTrainer:time backward: 0.09395364907334794
+INFO:PyGTrainer:loader time: 0.03000088781118393
+INFO:PyGTrainer:epoch 0, iteration 181
+INFO:PyGTrainer:num sampled edges: tensor([  3745,  22831, 110612])
+INFO:PyGTrainer:feature transfer time: 0.01631085864258009
+INFO:PyGTrainer:total time: 0.49098068465488953
+INFO:PyGTrainer:time forward: 0.05487948560903033
+INFO:PyGTrainer:num sampled nodes: tensor([   930,   8244,  50810, 215956])
+INFO:PyGTrainer:num sampled edges: tensor([  8423,  61632, 352330])
+INFO:PyGTrainer:num sampled edges: tensor([  3799,  26268, 141439])
+INFO:PyGTrainer:time backward: 0.0772385969143975
+INFO:PyGTrainer:loader time: 0.03405662998557091
+INFO:PyGTrainer:time forward: 0.04894943471875165
+INFO:PyGTrainer:time backward: 0.09504040549662741
+INFO:PyGTrainer:loader time: 0.02412048727273941
+INFO:PyGTrainer:feature transfer time: 0.016327522183348844
+INFO:PyGTrainer:total time: 0.4909081258043483
+INFO:PyGTrainer:feature transfer time: 0.014982679132167455
+INFO:PyGTrainer:total time: 0.4910084452521015
+INFO:PyGTrainer:time forward: 0.04903513227927161
+INFO:PyGTrainer:time backward: 0.1052448761004668
+INFO:PyGTrainer:epoch 0, iteration 181
+INFO:PyGTrainer:loader time: 0.029093652963638306
+INFO:PyGTrainer:feature transfer time: 0.013161769535924708
+INFO:PyGTrainer:num sampled nodes: tensor([   503,   4269,  26380, 126695])
+INFO:PyGTrainer:total time: 0.490908882857024
+INFO:PyGTrainer:num sampled edges: tensor([  4361,  31132, 190270])
+INFO:PyGTrainer:time forward: 0.047087486464898666
+INFO:PyGTrainer:time backward: 0.10159599820950202
+INFO:PyGTrainer:loader time: 0.037155019119381905
+INFO:PyGTrainer:feature transfer time: 0.016600196700092856
+INFO:PyGTrainer:total time: 0.4909484482441957
+INFO:PyGTrainer:epoch 0, iteration 201
+INFO:PyGTrainer:epoch 0, iteration 201
+INFO:PyGTrainer:epoch 0, iteration 201
+INFO:PyGTrainer:num sampled nodes: tensor([  469,  3532, 20060, 82047])
+INFO:PyGTrainer:num sampled edges: tensor([  3574,  24615, 132633])
+INFO:PyGTrainer:time forward: 0.03988240289474183
+INFO:PyGTrainer:num sampled nodes: tensor([  442,  3792, 18805, 67761])
+INFO:PyGTrainer:num sampled edges: tensor([  3860,  22544, 105144])
+INFO:PyGTrainer:time forward: 0.05323845626657257
+INFO:PyGTrainer:time backward: 0.1482446974807299
+INFO:PyGTrainer:loader time: 0.025335639715194702
+INFO:PyGTrainer:feature transfer time: 0.012910818902425247
+INFO:PyGTrainer:time backward: 0.14338333863248626
+INFO:PyGTrainer:loader time: 0.027339432388544083
+INFO:PyGTrainer:feature transfer time: 0.016036338191295026
+INFO:PyGTrainer:epoch 0, iteration 201
+INFO:PyGTrainer:total time: 0.5400831943728251
+INFO:PyGTrainer:num sampled nodes: tensor([  444,  3762, 19083, 71075])
+INFO:PyGTrainer:epoch 0, iteration 201
+INFO:PyGTrainer:num sampled nodes: tensor([  432,  3731, 21829, 93206])
+INFO:PyGTrainer:total time: 0.539964129834777
+INFO:PyGTrainer:num sampled edges: tensor([  3837,  22759, 111233])
+INFO:PyGTrainer:num sampled nodes: tensor([  439,  3041, 15330, 61961])
+INFO:PyGTrainer:time forward: 0.051313562392450794
+INFO:PyGTrainer:time backward: 0.14423654627718843
+INFO:PyGTrainer:loader time: 0.03270590119063854
+INFO:PyGTrainer:feature transfer time: 0.014562563943021958
+INFO:PyGTrainer:num sampled edges: tensor([ 3085, 18352, 92596])
+INFO:PyGTrainer:total time: 0.5401192490048338
+INFO:PyGTrainer:num sampled edges: tensor([  3766,  25580, 139427])
+INFO:PyGTrainer:time forward: 0.054085554315312076
+INFO:PyGTrainer:time backward: 0.14491179143770203
+INFO:PyGTrainer:loader time: 0.03177784942090511
+INFO:PyGTrainer:feature transfer time: 0.01480368075726351
+INFO:PyGTrainer:total time: 0.5401305114426235
+INFO:PyGTrainer:time forward: 0.04450263940535559
+INFO:PyGTrainer:time backward: 0.15740247667389046
+INFO:PyGTrainer:loader time: 0.03084256313741207
+INFO:PyGTrainer:feature transfer time: 0.016561316953289627
+INFO:PyGTrainer:total time: 0.5400515891113641
+INFO:PyGTrainer:epoch 0, iteration 201
+INFO:PyGTrainer:num sampled nodes: tensor([   473,   4274,  27180, 129929])
+INFO:PyGTrainer:num sampled edges: tensor([  4326,  31678, 189797])
+INFO:PyGTrainer:time forward: 0.046630087889509626
+INFO:PyGTrainer:time backward: 0.13409340942260062
+INFO:PyGTrainer:loader time: 0.03063306026160717
+INFO:PyGTrainer:feature transfer time: 0.01666389672214737
+INFO:PyGTrainer:total time: 0.5400847591883918
+INFO:PyGTrainer:epoch 0, iteration 221
+INFO:PyGTrainer:num sampled nodes: tensor([  429,  3707, 18592, 68719])
+INFO:PyGTrainer:epoch 0, iteration 221
+INFO:PyGTrainer:num sampled edges: tensor([  3760,  22670, 108419])
+INFO:PyGTrainer:time forward: 0.050287343058231716
+INFO:PyGTrainer:time backward: 0.14521498719716933
+INFO:PyGTrainer:loader time: 0.0240609310567379
+INFO:PyGTrainer:feature transfer time: 0.012882450905938944
+INFO:PyGTrainer:total time: 0.5224618570090415
+INFO:PyGTrainer:num sampled nodes: tensor([   431,   3753,  23707, 107737])
+INFO:PyGTrainer:num sampled edges: tensor([  3775,  27675, 160441])
+INFO:PyGTrainer:time forward: 0.05130357467275751
+INFO:PyGTrainer:time backward: 0.13978409821687787
+INFO:PyGTrainer:loader time: 0.023118117824196815
+INFO:PyGTrainer:feature transfer time: 0.014961115034246767
+INFO:PyGTrainer:total time: 0.5226083200525593
+INFO:PyGTrainer:epoch 0, iteration 221
+INFO:PyGTrainer:num sampled nodes: tensor([  425,  2919, 14481, 56936])
+INFO:PyGTrainer:epoch 0, iteration 221
+INFO:PyGTrainer:epoch 0, iteration 221
+INFO:PyGTrainer:num sampled edges: tensor([ 2966, 17560, 86218])
+INFO:PyGTrainer:time forward: 0.042354396519226
+INFO:PyGTrainer:num sampled nodes: tensor([  454,  4001, 20037, 71487])
+INFO:PyGTrainer:num sampled nodes: tensor([  471,  3591, 21548, 90720])
+INFO:PyGTrainer:time backward: 0.15520161812336328
+INFO:PyGTrainer:loader time: 0.03272808901965618
+INFO:PyGTrainer:feature transfer time: 0.016193797484644362
+INFO:PyGTrainer:total time: 0.5225719060446765
+INFO:PyGTrainer:epoch 0, iteration 221
+INFO:PyGTrainer:num sampled edges: tensor([  4054,  24402, 115390])
+INFO:PyGTrainer:time forward: 0.048753153482401695
+INFO:PyGTrainer:time backward: 0.13833439667281267
+INFO:PyGTrainer:num sampled edges: tensor([  3633,  26155, 143447])
+INFO:PyGTrainer:loader time: 0.035382797941565514
+INFO:PyGTrainer:feature transfer time: 0.014390094021150658
+INFO:PyGTrainer:time forward: 0.0380111047578556
+INFO:PyGTrainer:time backward: 0.138888060694208
+INFO:PyGTrainer:total time: 0.5226562761676472
+INFO:PyGTrainer:loader time: 0.03593301773071289
+INFO:PyGTrainer:feature transfer time: 0.015589560163920527
+INFO:PyGTrainer:num sampled nodes: tensor([   476,   4302,  28031, 130639])
+INFO:PyGTrainer:total time: 0.5226593060704233
+INFO:PyGTrainer:num sampled edges: tensor([  4389,  32869, 195768])
+INFO:PyGTrainer:time forward: 0.04447436755573427
+INFO:PyGTrainer:time backward: 0.12917420254634307
+INFO:PyGTrainer:loader time: 0.03457021526992321
+INFO:PyGTrainer:feature transfer time: 0.016499060516556103
+INFO:PyGTrainer:total time: 0.5225921214331646
+INFO:PyGTrainer:epoch 0, iteration 241
+INFO:PyGTrainer:num sampled nodes: tensor([  438,  2906, 14932, 60487])
+INFO:PyGTrainer:num sampled edges: tensor([ 2956, 17853, 90808])
+INFO:PyGTrainer:time forward: 0.04063369980282035
+INFO:PyGTrainer:time backward: 0.1511551538051283
+INFO:PyGTrainer:loader time: 0.02245618775486946
+INFO:PyGTrainer:feature transfer time: 0.015771305704227655
+INFO:PyGTrainer:total time: 0.5043578918499887
+INFO:PyGTrainer:epoch 0, iteration 241
+INFO:PyGTrainer:num sampled nodes: tensor([   445,   3821,  23925, 107735])
+INFO:PyGTrainer:num sampled edges: tensor([  3855,  28150, 162718])
+INFO:PyGTrainer:time forward: 0.04878819521424199
+INFO:PyGTrainer:time backward: 0.1327959828709891
+INFO:PyGTrainer:loader time: 0.02498544007539749
+INFO:PyGTrainer:feature transfer time: 0.01494599254570963
+INFO:PyGTrainer:total time: 0.5044587976953461
+INFO:PyGTrainer:epoch 0, iteration 241
+INFO:PyGTrainer:num sampled nodes: tensor([  434,  3738, 19036, 68520])
+INFO:PyGTrainer:epoch 0, iteration 241
+INFO:PyGTrainer:num sampled edges: tensor([  3804,  23014, 108998])
+INFO:PyGTrainer:num sampled nodes: tensor([  442,  3749, 18981, 70055])
+INFO:PyGTrainer:epoch 0, iteration 241
+INFO:PyGTrainer:time forward: 0.04802639934057293
+INFO:PyGTrainer:time backward: 0.13767598161458477
+INFO:PyGTrainer:loader time: 0.03131569176912308
+INFO:PyGTrainer:feature transfer time: 0.012888449444320084
+INFO:PyGTrainer:num sampled edges: tensor([  3815,  22797, 109991])
+INFO:PyGTrainer:total time: 0.5043820763422437
+INFO:PyGTrainer:num sampled nodes: tensor([   484,   4262,  27402, 127664])
+INFO:PyGTrainer:epoch 0, iteration 241
+INFO:PyGTrainer:time forward: 0.046459106474437496
+INFO:PyGTrainer:time backward: 0.13249808964742857
+INFO:PyGTrainer:loader time: 0.03555465303361416
+INFO:PyGTrainer:num sampled edges: tensor([  4335,  32070, 190085])
+INFO:PyGTrainer:feature transfer time: 0.014203680871624099
+INFO:PyGTrainer:total time: 0.5045106049611672
+INFO:PyGTrainer:time forward: 0.04243707135781523
+INFO:PyGTrainer:num sampled nodes: tensor([  465,  3642, 20906, 85352])
+INFO:PyGTrainer:time backward: 0.12438272704824435
+INFO:PyGTrainer:loader time: 0.03316720016300678
+INFO:PyGTrainer:feature transfer time: 0.01631122421134602
+INFO:PyGTrainer:total time: 0.5044364174597027
+INFO:PyGTrainer:num sampled edges: tensor([  3693,  25872, 138896])
+INFO:PyGTrainer:time forward: 0.03675610143383426
+INFO:PyGTrainer:time backward: 0.1319537463420925
+INFO:PyGTrainer:loader time: 0.03654361329972744
+INFO:PyGTrainer:feature transfer time: 0.015322778574075581
+INFO:PyGTrainer:total time: 0.5045132087081794
+INFO:PyGTrainer:epoch 0, iteration 261
+INFO:PyGTrainer:num sampled nodes: tensor([  431,  2865, 14070, 53674])
+INFO:PyGTrainer:num sampled edges: tensor([ 2920, 17204, 81729])
+INFO:PyGTrainer:time forward: 0.039112336919394156
+INFO:PyGTrainer:time backward: 0.14723868826617495
+INFO:PyGTrainer:loader time: 0.024742359295487404
+INFO:PyGTrainer:feature transfer time: 0.0154249366827821
+INFO:PyGTrainer:total time: 0.4883066871779338
+INFO:PyGTrainer:epoch 0, iteration 261
+INFO:PyGTrainer:num sampled nodes: tensor([   481,   4345,  27408, 124837])
+INFO:PyGTrainer:num sampled edges: tensor([  4400,  31961, 186714])
+INFO:PyGTrainer:time forward: 0.040708902263516235
+INFO:PyGTrainer:time backward: 0.11922054887813238
+INFO:PyGTrainer:loader time: 0.02543466165661812
+INFO:PyGTrainer:feature transfer time: 0.01607841710410728
+INFO:PyGTrainer:total time: 0.4883081379296784
+INFO:PyGTrainer:epoch 0, iteration 261
+INFO:PyGTrainer:epoch 0, iteration 261
+INFO:PyGTrainer:epoch 0, iteration 261
+INFO:PyGTrainer:num sampled nodes: tensor([  472,  3601, 20312, 81177])
+INFO:PyGTrainer:num sampled nodes: tensor([   446,   3902,  24571, 110217])
+INFO:PyGTrainer:num sampled nodes: tensor([  444,  3811, 19645, 71849])
+INFO:PyGTrainer:num sampled edges: tensor([  3664,  25131, 131730])
+INFO:PyGTrainer:time forward: 0.03555009261712091
+INFO:PyGTrainer:num sampled edges: tensor([  3867,  23714, 113745])
+INFO:PyGTrainer:time backward: 0.12596054116391953
+INFO:PyGTrainer:loader time: 0.030694756656885147
+INFO:PyGTrainer:feature transfer time: 0.015057022192778479
+INFO:PyGTrainer:epoch 0, iteration 261
+INFO:PyGTrainer:time forward: 0.04440595419323854
+INFO:PyGTrainer:num sampled edges: tensor([  3951,  29084, 167614])
+INFO:PyGTrainer:time backward: 0.1268359950409477
+INFO:PyGTrainer:total time: 0.4884050333133067
+INFO:PyGTrainer:loader time: 0.030310191214084625
+INFO:PyGTrainer:num sampled nodes: tensor([  442,  3777, 18899, 70002])
+INFO:PyGTrainer:time forward: 0.046577105113795696
+INFO:PyGTrainer:feature transfer time: 0.014060099061777574
+INFO:PyGTrainer:time backward: 0.12648536081475611
+INFO:PyGTrainer:total time: 0.4884354510266362
+INFO:PyGTrainer:loader time: 0.031699083745479584
+INFO:PyGTrainer:feature transfer time: 0.014997407402985424
+INFO:PyGTrainer:num sampled edges: tensor([  3840,  22815, 110337])
+INFO:PyGTrainer:total time: 0.48842674625312327
+INFO:PyGTrainer:time forward: 0.045856914525666766
+INFO:PyGTrainer:time backward: 0.13027694325837244
+INFO:PyGTrainer:loader time: 0.03260795585811138
+INFO:PyGTrainer:feature transfer time: 0.012903643779115367
+INFO:PyGTrainer:total time: 0.4883358709172893
+INFO:PyGTrainer:epoch 0, iteration 281
+INFO:PyGTrainer:num sampled nodes: tensor([  442,  3822, 19265, 68688])
+INFO:PyGTrainer:num sampled edges: tensor([  3876,  23306, 109760])
+INFO:PyGTrainer:time forward: 0.04400190371518017
+INFO:PyGTrainer:time backward: 0.1239381283719806
+INFO:PyGTrainer:loader time: 0.022153308615088463
+INFO:PyGTrainer:feature transfer time: 0.012868379619210325
+INFO:PyGTrainer:total time: 0.4730764387096179
+INFO:PyGTrainer:epoch 0, iteration 281
+INFO:PyGTrainer:num sampled nodes: tensor([  441,  3613, 18976, 74550])
+INFO:PyGTrainer:epoch 0, iteration 281
+INFO:PyGTrainer:epoch 0, iteration 281
+INFO:PyGTrainer:num sampled nodes: tensor([   478,   4332,  27285, 127588])
+INFO:PyGTrainer:num sampled edges: tensor([  3653,  22645, 114456])
+INFO:PyGTrainer:time forward: 0.03776186808336077
+INFO:PyGTrainer:time backward: 0.1429385996971887
+INFO:PyGTrainer:loader time: 0.027340253815054893
+INFO:PyGTrainer:feature transfer time: 0.015312851010326376
+INFO:PyGTrainer:total time: 0.47314895690808484
+INFO:PyGTrainer:num sampled nodes: tensor([   451,   3906,  24966, 112658])
+INFO:PyGTrainer:num sampled edges: tensor([  3927,  29128, 169781])
+INFO:PyGTrainer:time forward: 0.04478402929842895
+INFO:PyGTrainer:time backward: 0.1196291474031007
+INFO:PyGTrainer:num sampled edges: tensor([  4413,  31918, 189976])
+INFO:PyGTrainer:time forward: 0.039302621003742336
+INFO:PyGTrainer:loader time: 0.028669441118836403
+INFO:PyGTrainer:time backward: 0.11363579837460044
+INFO:PyGTrainer:feature transfer time: 0.014977436255108802
+INFO:PyGTrainer:loader time: 0.03104984387755394
+INFO:PyGTrainer:total time: 0.47323330491781235
+INFO:PyGTrainer:feature transfer time: 0.015907160032884025
+INFO:PyGTrainer:total time: 0.4731594824251976
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, test stage
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, test stage
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, test stage
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, test stage
+INFO:PyGCuGraphTrainer:got data successfully on rank 6
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, test stage
+INFO:PyGCuGraphTrainer:got data successfully on rank 1
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, test stage
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 6
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 7
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 1
+INFO:PyGCuGraphTrainer:got data successfully on rank 5
+INFO:PyGCuGraphTrainer:got data successfully on rank 2
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 2
+INFO:PyGCuGraphTrainer:got data successfully on rank 7
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 5
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, test stage
+INFO:PyGCuGraphTrainer:got data successfully on rank 4
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 4
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 3
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:getting loader for epoch 0, test stage
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 0
+INFO:PyGCuGraphTrainer:got data successfully on rank 3
+INFO:PyGCuGraphTrainer:getting data
+INFO:PyGCuGraphTrainer:got data successfully on rank 0
+Traceback (most recent call last):
+  File "/scripts/bench_cugraph_training.py", line 307, in <module>
+    main(args)
+  File "/scripts/bench_cugraph_training.py", line 298, in main
+    stats = trainer.train()
+  File "/scripts/trainers/pyg/trainers_pyg.py", line 239, in train
+    loader = self.get_loader(epoch=epoch, stage="test")
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 135, in get_loader
+    input_files=self.get_input_files(path, epoch=epoch, stage=stage),
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 247, in get_input_files
+    file_list = np.array(os.listdir(path))
+FileNotFoundError: [Errno 2] No such file or directory: '/samples/ogbn_papers100M[1]_b512_f[10, 10, 10]/test/samples'
+Traceback (most recent call last):
+  File "/scripts/bench_cugraph_training.py", line 307, in <module>
+    main(args)
+  File "/scripts/bench_cugraph_training.py", line 298, in main
+    stats = trainer.train()
+  File "/scripts/trainers/pyg/trainers_pyg.py", line 239, in train
+    loader = self.get_loader(epoch=epoch, stage="test")
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 135, in get_loader
+    input_files=self.get_input_files(path, epoch=epoch, stage=stage),
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 247, in get_input_files
+    file_list = np.array(os.listdir(path))
+FileNotFoundError: [Errno 2] No such file or directory: '/samples/ogbn_papers100M[1]_b512_f[10, 10, 10]/test/samples'
+Traceback (most recent call last):
+  File "/scripts/bench_cugraph_training.py", line 307, in <module>
+    main(args)
+  File "/scripts/bench_cugraph_training.py", line 298, in main
+    stats = trainer.train()
+  File "/scripts/trainers/pyg/trainers_pyg.py", line 239, in train
+    loader = self.get_loader(epoch=epoch, stage="test")
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 135, in get_loader
+    input_files=self.get_input_files(path, epoch=epoch, stage=stage),
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 247, in get_input_files
+    file_list = np.array(os.listdir(path))
+FileNotFoundError: [Errno 2] No such file or directory: '/samples/ogbn_papers100M[1]_b512_f[10, 10, 10]/test/samples'
+Traceback (most recent call last):
+  File "/scripts/bench_cugraph_training.py", line 307, in <module>
+    main(args)
+  File "/scripts/bench_cugraph_training.py", line 298, in main
+    stats = trainer.train()
+  File "/scripts/trainers/pyg/trainers_pyg.py", line 239, in train
+    loader = self.get_loader(epoch=epoch, stage="test")
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 135, in get_loader
+    input_files=self.get_input_files(path, epoch=epoch, stage=stage),
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 247, in get_input_files
+    file_list = np.array(os.listdir(path))
+FileNotFoundError: [Errno 2] No such file or directory: '/samples/ogbn_papers100M[1]_b512_f[10, 10, 10]/test/samples'
+Traceback (most recent call last):
+  File "/scripts/bench_cugraph_training.py", line 307, in <module>
+    main(args)
+  File "/scripts/bench_cugraph_training.py", line 298, in main
+    stats = trainer.train()
+  File "/scripts/trainers/pyg/trainers_pyg.py", line 239, in train
+    loader = self.get_loader(epoch=epoch, stage="test")
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 135, in get_loader
+    input_files=self.get_input_files(path, epoch=epoch, stage=stage),
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 247, in get_input_files
+    file_list = np.array(os.listdir(path))
+FileNotFoundError: [Errno 2] No such file or directory: '/samples/ogbn_papers100M[1]_b512_f[10, 10, 10]/test/samples'
+Traceback (most recent call last):
+  File "/scripts/bench_cugraph_training.py", line 307, in <module>
+    main(args)
+  File "/scripts/bench_cugraph_training.py", line 298, in main
+    stats = trainer.train()
+  File "/scripts/trainers/pyg/trainers_pyg.py", line 239, in train
+    loader = self.get_loader(epoch=epoch, stage="test")
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 135, in get_loader
+    input_files=self.get_input_files(path, epoch=epoch, stage=stage),
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 247, in get_input_files
+    file_list = np.array(os.listdir(path))
+FileNotFoundError: [Errno 2] No such file or directory: '/samples/ogbn_papers100M[1]_b512_f[10, 10, 10]/test/samples'
+Traceback (most recent call last):
+  File "/scripts/bench_cugraph_training.py", line 307, in <module>
+    main(args)
+  File "/scripts/bench_cugraph_training.py", line 298, in main
+    stats = trainer.train()
+  File "/scripts/trainers/pyg/trainers_pyg.py", line 239, in train
+    loader = self.get_loader(epoch=epoch, stage="test")
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 135, in get_loader
+    input_files=self.get_input_files(path, epoch=epoch, stage=stage),
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 247, in get_input_files
+    file_list = np.array(os.listdir(path))
+FileNotFoundError: [Errno 2] No such file or directory: '/samples/ogbn_papers100M[1]_b512_f[10, 10, 10]/test/samples'
+Traceback (most recent call last):
+  File "/scripts/bench_cugraph_training.py", line 307, in <module>
+    main(args)
+  File "/scripts/bench_cugraph_training.py", line 298, in main
+    stats = trainer.train()
+  File "/scripts/trainers/pyg/trainers_pyg.py", line 239, in train
+    loader = self.get_loader(epoch=epoch, stage="test")
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 135, in get_loader
+    input_files=self.get_input_files(path, epoch=epoch, stage=stage),
+  File "/scripts/trainers/pyg/trainers_cugraph_pyg.py", line 247, in get_input_files
+    file_list = np.array(os.listdir(path))
+FileNotFoundError: [Errno 2] No such file or directory: '/samples/ogbn_papers100M[1]_b512_f[10, 10, 10]/test/samples'
+[2024-01-27 13:13:38,716] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 1835879 closing signal SIGTERM
+[2024-01-27 13:13:38,717] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 1835880 closing signal SIGTERM
+[2024-01-27 13:13:38,717] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 1835882 closing signal SIGTERM
+[2024-01-27 13:13:38,717] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 1835883 closing signal SIGTERM
+[2024-01-27 13:13:38,717] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 1835884 closing signal SIGTERM
+[2024-01-27 13:13:38,717] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 1835885 closing signal SIGTERM
+[2024-01-27 13:13:38,717] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 1835886 closing signal SIGTERM
+[2024-01-27 13:13:48,058] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 2 (pid: 1835881) of binary: /opt/conda/bin/python
+Traceback (most recent call last):
+  File "/opt/conda/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.1.2', 'console_scripts', 'torchrun')())
+  File "/opt/conda/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/opt/conda/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/opt/conda/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/opt/conda/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/scripts/bench_cugraph_training.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-01-27_13:13:38
+  host      : rno1-m02-b07-dgx1-011.nsv.rno1.nvmetal.net
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 1835881)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: rno1-m02-b07-dgx1-011: task 0: Exited with exit code 1
+srun: Terminating job step 1642951.2
